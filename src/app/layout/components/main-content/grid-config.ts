@@ -1,3 +1,4 @@
+import { NONE_TYPE } from "@angular/compiler/src/output/output_ast";
 import {
   CompactType,
   DisplayGrid,
@@ -49,7 +50,7 @@ export const gridConfig: GridsterConfig = {
   disablePushOnResize: false,
   pushDirections: { north: true, east: true, south: true, west: true },
   pushResizeItems: false,
-  displayGrid: DisplayGrid.OnDragAndResize,
+  displayGrid: DisplayGrid.None,
   disableWindowResize: false,
   disableWarnings: false,
   scrollToNewItems: false
