@@ -3,18 +3,18 @@ import { WidgetItem } from "../../models/widget.model";
 
 export const mainContentWidgets: WidgetItem[] = [
   {
-    cols: 1,
+    cols: 2,
     rows: 1,
-    y: 1,
-    x: 2,
+    y: 2,
+    x: 4,
     widgetId: WidgetType.Text,
     widgetName: WidgetName.Text
   },
   {
-    cols: 1,
-    rows: 1,
+    cols: 2,
+    rows: 2,
     y: 0,
-    x: 2,
+    x: 0,
     widgetId: WidgetType.PieChart,
     widgetName: WidgetName.PieChart
   },
@@ -22,7 +22,7 @@ export const mainContentWidgets: WidgetItem[] = [
     cols: 2,
     rows: 2,
     y: 0,
-    x: 0,
+    x: 2,
     widgetId: WidgetType.BarChart,
     widgetName: WidgetName.BarChart
   },
@@ -30,12 +30,12 @@ export const mainContentWidgets: WidgetItem[] = [
     cols: 2,
     rows: 2,
     y: 0,
-    x: 3,
+    x: 4,
     widgetId: WidgetType.DataTable,
     widgetName: WidgetName.DataTable
   },
   {
-    cols: 5,
+    cols: 4,
     rows: 1,
     y: 2,
     x: 0,
