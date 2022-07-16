@@ -33,5 +33,13 @@ export const mainContentWidgets: WidgetItem[] = [
     x: 3,
     widgetId: WidgetType.DataTable,
     widgetName: WidgetName.DataTable
+  },
+  {
+    cols: 5,
+    rows: 1,
+    y: 2,
+    x: 0,
+    widgetId: WidgetType.LineChart,
+    widgetName: WidgetName.LineChart
   }
 ];

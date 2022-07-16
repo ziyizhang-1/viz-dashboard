@@ -10,18 +10,33 @@ export const BarChartInitConfig: EChartOption = {
   },
   legend: { show: true },
   tooltip: { show: true },
-  dataset: {
-    dimensions: ["product", "2015", "2016", "2017"],
-    source: [
-      { product: "Matcha Latte", "2015": 43.3, "2016": 85.8, "2017": 93.7 },
-      { product: "Milk Tea", "2015": 83.1, "2016": 73.4, "2017": 55.1 },
-      { product: "Cheese Cocoa", "2015": 86.4, "2016": 65.2, "2017": 82.5 },
-      { product: "Walnut Brownie", "2015": 72.4, "2016": 53.9, "2017": 39.1 }
-    ]
+  toolbox: {
+    feature: {
+      dataView: { show: true, readOnly: true },
+      saveAsImage: { show: true },
+    },
+    showTitle: false
   },
+  series: [
+    {
+      type: "bar",
+      data: [43.3, 83.1, 86.4, 72.4],
+      name: "4xlarge"
+    },
+    {
+      type: "bar",
+      data: [85.8, 73.4, 65.2, 53.9],
+      name: "8xlarge"
+    },
+    {
+      type: "bar",
+      data: [93.7, 55.1, 82.5, 39.1],
+      name: "16xlarge"
+    }
+  ],
   xAxis: {
-    type: "category"
+    type: "category",
+    data: ["CPX", "ICX", "SPR", "GNR"]
   },
-  yAxis: {},
-  series: [{ type: "bar" }, { type: "bar" }, { type: "bar" }]
+  yAxis: {}
 };

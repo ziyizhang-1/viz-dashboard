@@ -6,11 +6,12 @@ import { PieChartComponent } from "src/app/widget/components/pie-chart/pie-chart
 import { TextComponent } from "src/app/widget/components/text/text.component";
 import { WidgetModule } from "src/app/widget/widget.module";
 import { MainContentComponent } from "./main-content.component";
+import { LineChartComponent } from "src/app/widget/components/line-chart/line-chart.component";
 
 @NgModule({
   declarations: [MainContentComponent],
   imports: [CommonModule, GridsterModule, WidgetModule],
   exports: [MainContentComponent],
-  entryComponents: [TextComponent, PieChartComponent, BarChartComponent]
+  entryComponents: [TextComponent, PieChartComponent, BarChartComponent, LineChartComponent]
 })
 export class MainContentModule {}
