@@ -1,24 +1,24 @@
-<div class="alert alert-app-level alert-info" role="alert">
+<div id="alert-header" class="alert alert-app-level alert-info" role="alert">
   <div class="alert-items">
     <div class="alert-item static">
       <div class="alert-icon-wrapper">
         <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
       </div>
       <div class="alert-text">
-        A new update is now available. Upgrade to v.1234.
+        INTEL CONFIDENTIAL. For Internal Use Only.
       </div>
       <div class="alert-actions">
-        <button class="btn alert-action" (click)="modal.onOpen()">
-          Install Update
+        <button id="known-btn" class="btn alert-action">
+          Got It
         </button>
       </div>
     </div>
   </div>
   <button
+    id="close-btn"
     type="button"
     class="close"
     aria-label="Close"
-    (click)="modal.onOpen()"
   >
     <clr-icon aria-hidden="true" shape="close"></clr-icon>
   </button>
@@ -34,7 +34,7 @@
     <a class="nav-link nav-icon" (click)="modal.onOpen()">
       <clr-icon shape="cloud"></clr-icon>
     </a>
-    <a class="active nav-link nav-icon" (click)="modal.onOpen()">
+    <a class="active nav-link nav-icon">
       <clr-icon shape="dashboard"></clr-icon>
     </a>
   </div>

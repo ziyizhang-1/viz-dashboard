@@ -1,0 +1,8 @@
+#alert-header {
+    opacity: 1;
+    transition: opacity 0.5s linear;
+  }
+  
+#alert-header.hide {
+    opacity: 0;
+  }

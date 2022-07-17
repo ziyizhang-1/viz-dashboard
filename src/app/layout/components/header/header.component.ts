@@ -31,6 +31,23 @@ export class HeaderComponent {
       .subscribe((theme: string) => {
         this.theme = theme;
       });
+    const targetDiv = document.getElementById("alert-header");
+    const knownBtn = document.getElementById("known-btn");
+    const closeBtn = document.getElementById("close-btn");
+    knownBtn.onclick = function () {
+      if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+      } else {
+        targetDiv.style.display = "block";
+      }
+    };
+    closeBtn.onclick = function () {
+      if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+      } else {
+        targetDiv.style.display = "block";
+      }
+    };
   }
 
   ngOnDestroy(): void {
