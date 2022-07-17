@@ -9,7 +9,6 @@
     "lint": "ng lint"
   },
   "private": true,
-  "deploy": "ng build --prod --base-href=/angular-dashboard-demo/",
   "dependencies": {
     "@angular/animations": "8.1.1",
     "@angular/common": "8.1.1",
