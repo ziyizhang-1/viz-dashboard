@@ -19,7 +19,7 @@ import { LineChartInitConfig } from "./line-chart-options";
 export class LineChartComponent implements OnInit, OnDestroy {
   options: EChartsOption = LineChartInitConfig;
   theme: string;
-  echartsIntance: ECharts;
+  echartsInstance: ECharts;
 
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
@@ -46,13 +46,13 @@ export class LineChartComponent implements OnInit, OnDestroy {
   }
 
   onChartInit(echartsInstance: ECharts): void {
-    this.echartsIntance = echartsInstance;
+    this.echartsInstance = echartsInstance;
   }
 
   resizeChart(): void {
-    if (this.echartsIntance) {
+    if (this.echartsInstance) {
       setTimeout(() => {
-        this.echartsIntance.resize();
+        this.echartsInstance.resize();
       }, 400);
     }
   }

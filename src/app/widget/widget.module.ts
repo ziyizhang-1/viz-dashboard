@@ -13,7 +13,7 @@ import { DynamicWidgetDirective } from "./directives/dynamic-widget.directive";
 import { WidgetService } from "./services/dynamic-widget.service";
 
 @NgModule({
-  imports: [CommonModule, NgxEchartsModule, BrowserModule, NgxDatatableModule],
+  imports: [CommonModule, NgxEchartsModule.forRoot({ echarts: () => import('echarts') }), BrowserModule, NgxDatatableModule],
   declarations: [
     DynamicWidgetComponent,
     DynamicWidgetDirective,
