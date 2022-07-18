@@ -21,7 +21,6 @@
     "@clr/angular": "2.0.2",
     "@clr/icons": "2.0.2",
     "@clr/ui": "2.0.2",
-    "@ngrx/core": "1.2.0",
     "@ngrx/effects": "8.1.0",
     "@ngrx/router-store": "8.1.0",
     "@ngrx/store": "8.1.0",

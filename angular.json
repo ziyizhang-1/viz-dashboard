@@ -86,6 +86,7 @@
   },
   "defaultProject": "angular-dashboard-demo",
   "cli": {
+    "analytics": false,
     "defaultCollection": "@ngrx/schematics"
   }
 }
