@@ -1,6 +1,6 @@
-import { EChartOption } from "echarts";
+import { EChartsOption } from "echarts";
 
-export const LineChartInitConfig: EChartOption = {
+export const LineChartInitConfig: EChartsOption = {
   xAxis: {
 	type: 'category',
 	data: ['A', 'B', 'C']

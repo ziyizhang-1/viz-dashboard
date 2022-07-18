@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Actions, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
-import { EChartOption, ECharts } from "echarts";
+import { EChartsCoreOption, ECharts } from "echarts";
 import { Subscription } from "rxjs";
 import { AppState } from "src/app/core/store/reducers";
 import { getThemeType } from "src/app/core/store/reducers/theme.reducer";
@@ -17,7 +17,7 @@ import { PieChartInitConfig } from "./pie-chart-options";
   styleUrls: ["./pie-chart.component.scss"]
 })
 export class PieChartComponent implements OnInit, OnDestroy {
-  options: EChartOption = PieChartInitConfig;
+  options: EChartsCoreOption = PieChartInitConfig;
   theme: string;
   echartsIntance: ECharts;
 

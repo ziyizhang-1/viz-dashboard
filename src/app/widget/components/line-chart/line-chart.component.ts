@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Actions, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
-import { EChartOption, ECharts } from "echarts";
+import { EChartsOption, ECharts } from "echarts";
 import { Subscription } from "rxjs";
 import { AppState } from "src/app/core/store/reducers";
 import { getThemeType } from "src/app/core/store/reducers/theme.reducer";
@@ -17,7 +17,7 @@ import { LineChartInitConfig } from "./line-chart-options";
   styleUrls: ["./line-chart.component.scss"]
 })
 export class LineChartComponent implements OnInit, OnDestroy {
-  options: EChartOption = LineChartInitConfig;
+  options: EChartsOption = LineChartInitConfig;
   theme: string;
   echartsIntance: ECharts;
 

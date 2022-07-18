@@ -1,6 +1,6 @@
-import { EChartOption } from "echarts";
+import { EChartsOption } from "echarts";
 
-export const BarChartInitConfig: EChartOption = {
+export const BarChartInitConfig: EChartsOption = {
   grid: {
     left: "4%",
     right: "4%",
