@@ -8,28 +8,35 @@ export const PieChartInitConfig: EChartsOption = {
     trigger: "item",
     formatter: "{b} : {c} ({d}%)"
   },
-  // legend: {
-  //   orient: "horizontal",
-  //   x: "center",
-  //   y: "bottom",
-  //   type: "scroll",
-  //   data: ["Others", "Vue", "AngularJs", "Angular", "React"]
-  // },
+  legend: {
+    orient: "horizontal",
+    type: "scroll",
+    bottom: 0,
+    data: ["AWS", "Azure", "AliCloud", "Tencent", "Bare Metal"]
+  },
   series: [
     {
       type: 'pie',
       data: [
         {
           value: 335,
-          name: 'Direct Visit'
+          name: 'AWS'
         },
         {
           value: 234,
-          name: 'Union Ad'
+          name: 'Azure'
+        },
+        {
+          value: 456,
+          name: 'AliCloud'
+        },
+        {
+          value: 189,
+          name: 'Tencent'
         },
         {
           value: 1548,
-          name: 'Search Engine'
+          name: 'Bare Metal'
         }
       ]
     }

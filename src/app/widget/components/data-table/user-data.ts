@@ -2,153 +2,163 @@ import { User } from "../../models/user.model";
 
 export const userData: User[] = [
   {
-    name: "Nelson",
+    status: "active",
     id: 1,
-    created: "1987-05-01"
+    frequency: 3.34
   },
   {
-    name: "Graham",
+    status: "active",
     id: 2,
-    created: "1987-05-02"
+    frequency: 3.34
   },
   {
-    name: "Olene",
+    status: "inactive",
     id: 3,
-    created: "1987-05-03"
+    frequency: 0
   },
   {
-    name: "Dorian",
+    status: "active",
     id: 4,
-    created: "1987-05-04"
+    frequency: 3.34
   },
   {
-    name: "Nidia",
+    status: "inactive",
     id: 5,
-    created: "1987-05-05"
+    frequency: 0
   },
   {
-    name: "Keenan",
+    status: "active",
     id: 6,
-    created: "1987-05-06"
+    frequency: 3.34
   },
   {
-    name: "Luna",
+    status: "active",
     id: 7,
-    created: "1987-05-07"
+    frequency: 3.34
   },
   {
-    name: "Letisha",
+    status: "active",
     id: 8,
-    created: "1987-05-08"
+    frequency: 3.34
   },
   {
-    name: "Lenny",
+    status: "inactive",
     id: 9,
-    created: "1987-05-09"
+    frequency: 0
   },
   {
-    name: "Jeana",
+    status: "active",
     id: 10,
-    created: "1987-05-10"
+    frequency: 3.34
   },
   {
-    name: "Alica",
+    status: "active",
     id: 11,
-    created: "1987-05-11"
+    frequency: 3.34
   },
   {
-    name: "Sheridan",
+    status: "active",
     id: 12,
-    created: "1987-05-12"
+    frequency: 3.34
   },
   {
-    name: "Georgia",
+    status: "active",
     id: 13,
-    created: "1987-05-13"
+    frequency: 3.34
   },
   {
-    name: "Brad",
+    status: "active",
     id: 14,
-    created: "1987-05-14"
+    frequency: 3.34
   },
   {
-    name: "Ellen",
+    status: "active",
     id: 15,
-    created: "1987-05-15"
+    frequency: 3.34
   },
   {
-    name: "Brynn",
+    status: "active",
     id: 16,
-    created: "1987-05-16"
+    frequency: 3.34
   },
   {
-    name: "Roslyn",
+    status: "active",
     id: 17,
-    created: "1987-05-17"
+    frequency: 3.34
   },
   {
-    name: "Rhona",
+    status: "inactive",
     id: 18,
-    created: "1987-05-18"
+    frequency: 0
   },
   {
-    name: "Marcella",
+    status: "active",
     id: 19,
-    created: "1987-05-19"
+    frequency: 3.34
   },
   {
-    name: "Sibyl",
+    status: "active",
     id: 20,
-    created: "1987-05-20"
+    frequency: 3.34
   },
   {
-    name: "Shenika",
+    status: "active",
     id: 21,
-    created: "1987-05-21"
+    frequency: 3.34
   },
   {
-    name: "Desirae",
+    status: "active",
     id: 22,
-    created: "1987-05-22"
+    frequency: 3.34
   },
   {
-    name: "Beverly",
+    status: "inactive",
     id: 23,
-    created: "1987-05-23"
+    frequency: 0
   },
   {
-    name: "Kaitlin",
+    status: "active",
     id: 24,
-    created: "1987-05-24"
+    frequency: 3.34
   },
   {
-    name: "Jose",
+    status: "active",
     id: 25,
-    created: "1987-05-25"
+    frequency: 3.34
   },
   {
-    name: "Lucius",
+    status: "active",
     id: 26,
-    created: "1987-05-26"
+    frequency: 3.34
   },
   {
-    name: "Darla",
+    status: "active",
     id: 27,
-    created: "1987-05-27"
+    frequency: 3.34
   },
   {
-    name: "Debby",
+    status: "active",
     id: 28,
-    created: "1987-05-28"
+    frequency: 3.34
   },
   {
-    name: "Lottie",
+    status: "inactive",
     id: 29,
-    created: "1987-05-29"
+    frequency: 0
   },
   {
-    name: "Genoveva",
+    status: "active",
     id: 30,
-    created: "1987-05-30"
+    frequency: 3.34
+  },
+  {
+    status: "inactive",
+    id: 31,
+    frequency: 0
+  },
+  {
+    status: "active",
+    id: 32,
+    frequency: 3.34
   }
 ];
