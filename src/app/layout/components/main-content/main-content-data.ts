@@ -20,11 +20,19 @@ export const mainContentWidgets: WidgetItem[] = [
   },
   {
     cols: 2,
-    rows: 2,
+    rows: 1,
     y: 0,
     x: 2,
     widgetId: WidgetType.BarChart,
     widgetName: WidgetName.BarChart
+  },
+  {
+    cols: 2,
+    rows: 1,
+    y: 1,
+    x: 2,
+    widgetId: WidgetType.Heatmap,
+    widgetName: WidgetName.Heatmap
   },
   {
     cols: 2,

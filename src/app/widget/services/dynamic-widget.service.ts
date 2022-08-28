@@ -4,6 +4,7 @@ import { DataTableComponent } from "../components/data-table/data-table.componen
 import { PieChartComponent } from "../components/pie-chart/pie-chart.component";
 import { TextComponent } from "../components/text/text.component";
 import { LineChartComponent } from "../components/line-chart/line-chart.component";
+import { HeatmapComponent } from "../components/heatmap/heatmap.component";
 
 @Injectable()
 export class WidgetService {
@@ -12,7 +13,8 @@ export class WidgetService {
     2: PieChartComponent,
     3: BarChartComponent,
     4: DataTableComponent,
-    5: LineChartComponent
+    5: LineChartComponent,
+    6: HeatmapComponent
   };
 
   getComponent(id: number) {

@@ -9,6 +9,7 @@ import { DynamicWidgetComponent } from "./components/dynamic-widget/dynamic-widg
 import { PieChartComponent } from "./components/pie-chart/pie-chart.component";
 import { TextComponent } from "./components/text/text.component";
 import { LineChartComponent } from "./components/line-chart/line-chart.component";
+import { HeatmapComponent } from "./components/heatmap/heatmap.component";
 import { DynamicWidgetDirective } from "./directives/dynamic-widget.directive";
 import { WidgetService } from "./services/dynamic-widget.service";
 
@@ -21,7 +22,8 @@ import { WidgetService } from "./services/dynamic-widget.service";
     PieChartComponent,
     BarChartComponent,
     DataTableComponent,
-    LineChartComponent
+    LineChartComponent,
+    HeatmapComponent
   ],
   exports: [DynamicWidgetComponent],
   providers: [WidgetService],

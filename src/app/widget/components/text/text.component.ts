@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { npyjs } from "npyjs";
 
 @Component({
   selector: "app-text",

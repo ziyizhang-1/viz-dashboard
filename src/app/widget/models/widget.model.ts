@@ -3,7 +3,8 @@ export enum WidgetType {
   PieChart = 2,
   BarChart = 3,
   DataTable = 4,
-  LineChart = 5
+  LineChart = 5,
+  Heatmap = 6
 }
 
 export enum WidgetName {
@@ -11,5 +12,6 @@ export enum WidgetName {
   PieChart = "Pie Chart",
   BarChart = "Bar Chart",
   DataTable = "Data Table",
-  LineChart = "Line Chart"
+  LineChart = "Line Chart",
+  Heatmap = "Heatmap"
 }

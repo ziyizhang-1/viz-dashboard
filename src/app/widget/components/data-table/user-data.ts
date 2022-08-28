@@ -14,7 +14,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 3,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
@@ -24,7 +24,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 5,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
@@ -44,7 +44,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 9,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
@@ -89,7 +89,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 18,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
@@ -114,7 +114,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 23,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
@@ -144,7 +144,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 29,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
@@ -154,7 +154,7 @@ export const userData: User[] = [
   {
     status: "inactive",
     id: 31,
-    frequency: 0
+    frequency: 2.6
   },
   {
     status: "active",
