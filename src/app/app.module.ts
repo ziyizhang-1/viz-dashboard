@@ -9,12 +9,15 @@ import { environment } from "src/environments/environment";
 import { AppComponent } from "./app.component";
 import { appRoutes } from "./app.routes";
 import { LayoutModule } from "./layout/layout.module";
+import { CloudModule } from "./cloud/cloud.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     LayoutModule,
+    CloudModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
@@ -29,9 +32,11 @@ import { LayoutModule } from "./layout/layout.module";
       logOnly: environment.production,
       maxAge: 20
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -25,12 +25,7 @@ export class HeaderComponent {
     private themeService: ThemeService
   ) {}
 
-  ngOnInit(): void {
-    this.themeSubscription = this.store
-      .pipe(select(getThemeType))
-      .subscribe((theme: string) => {
-        this.theme = theme;
-      });
+  ngAfterViewChecked(): void {
     const targetDiv = document.getElementById("alert-header");
     const knownBtn = document.getElementById("known-btn");
     const closeBtn = document.getElementById("close-btn");
@@ -48,6 +43,14 @@ export class HeaderComponent {
         targetDiv.style.display = "block";
       }
     };
+  }
+
+  ngOnInit(): void {
+    this.themeSubscription = this.store
+      .pipe(select(getThemeType))
+      .subscribe((theme: string) => {
+        this.theme = theme;
+      });
   }
 
   ngOnDestroy(): void {

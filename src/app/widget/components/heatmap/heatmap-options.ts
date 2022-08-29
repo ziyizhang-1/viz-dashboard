@@ -22,7 +22,7 @@ export const HeatmapInitConfig: EChartsOption = {
   },
   grid: {
     height: '50%',
-    top: '10%'
+    top: '20%'
   },
   xAxis: {
     type: 'category',
