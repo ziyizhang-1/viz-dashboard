@@ -61,14 +61,13 @@ export class DropDownListComponent implements OnInit {
     public heroClasses: IHeroClass[] = [];
     public hero = 'Choose your hero';
 
-    constructor(public elem: ElementRef) {
-    }
-
-    public ngOnInit() {
-        this.heroClasses = getHeroClassData();
-    }
+    constructor(public elem: ElementRef) {}
 
     public handleDropDownSelection(event: ISelectionEventArgs) {
         this.hero = event.newSelection.value;
+    }
+
+    ngOnInit(): void {
+        this.heroClasses = getHeroClassData();
     }
 }
