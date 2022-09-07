@@ -8,14 +8,14 @@ import {
 	IgxButtonModule,
 	IgxToggleModule
  } from "igniteui-angular";
-import { DropDownListComponent } from "./dropdown-list.component";
+import { PlatformListComponent } from "./platform-list.component";
 
 
 
 @NgModule({
-  bootstrap: [DropDownListComponent],
+  bootstrap: [PlatformListComponent],
   declarations: [
-	DropDownListComponent
+	PlatformListComponent
   ],
   imports: [
 	CommonModule,
@@ -26,6 +26,6 @@ import { DropDownListComponent } from "./dropdown-list.component";
 	IgxButtonModule,
 	IgxToggleModule
   ],
-  exports: [DropDownListComponent]
+  exports: [PlatformListComponent]
 })
-export class DropDownListModule {}
+export class PlatformListModule {}

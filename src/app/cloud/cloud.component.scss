@@ -1,6 +1,8 @@
-.main-header {
-    background-color: #5e4f54;
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-body {
+.body {
     background-color: #5e4f54;
 }

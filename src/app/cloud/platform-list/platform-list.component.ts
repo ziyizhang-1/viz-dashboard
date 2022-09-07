@@ -23,7 +23,7 @@ const getHeroClassData = () => {
             name: "ROME",
             refNo: `8`
         }, {
-            name: "Naples",
+            name: "NAPLES",
             refNo: `9`
         }]
     }, {
@@ -52,11 +52,11 @@ interface ISubClass {
 }
 
 @Component({
-    selector: 'app-dropdown-list',
-    styleUrls: ['./dropdown-list.component.scss'],
-    templateUrl: './dropdown-list.component.html'
+    selector: 'app-platform-list',
+    styleUrls: ['./platform-list.component.scss'],
+    templateUrl: './platform-list.component.html'
 })
-export class DropDownListComponent implements OnInit {
+export class PlatformListComponent implements OnInit {
     @ViewChild('button', { static: true }) public button: ElementRef;
     public heroClasses: IHeroClass[] = [];
     public hero = 'Choose your hero';
