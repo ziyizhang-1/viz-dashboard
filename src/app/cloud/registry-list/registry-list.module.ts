@@ -6,19 +6,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { 
 	IgxDropDownModule,
 	IgxButtonModule,
-	IgxToggleModule,
-	IgxInputGroupModule,
-	IgxSwitchModule,
-	IgxCheckboxModule
+	IgxToggleModule
  } from "igniteui-angular";
-import { BackendListComponent } from "./backend-list.component";
+import { RegistryListComponent } from "./registry-list.component";
 
 
 
 @NgModule({
-  bootstrap: [BackendListComponent],
+  bootstrap: [RegistryListComponent],
   declarations: [
-	BackendListComponent
+	RegistryListComponent
   ],
   imports: [
 	CommonModule,
@@ -27,11 +24,8 @@ import { BackendListComponent } from "./backend-list.component";
 	FormsModule,
 	IgxDropDownModule,
 	IgxButtonModule,
-	IgxToggleModule,
-	IgxInputGroupModule,
-	IgxSwitchModule,
-	IgxCheckboxModule
+	IgxToggleModule
   ],
-  exports: [BackendListComponent]
+  exports: [RegistryListComponent]
 })
-export class BackendListModule {}
+export class RegistryListModule {}

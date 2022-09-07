@@ -2,53 +2,58 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ISelectionEventArgs } from 'igniteui-angular';
 
 const getHeroClassData = () => {
-    const generatedData = [{
-        name: "Intel",
-        entries: [{
-            name: "SPR",
-            refNo: `4`
-        }, {
-            name: "ICX",
-            refNo: `5`
-        }, {
-            name: "CPX",
-            refNo: `6`
-        }]
+    let generatedData = [{
+        name: "Docker"
     }, {
-        name: "AMD",
-        entries: [{
-            name: "MILAN",
-            refNo: `7`
-        }, {
-            name: "ROME",
-            refNo: `8`
-        }, {
-            name: "NAPLES",
-            refNo: `9`
-        }]
+        name: "Kubernetes"
     }, {
-        name: "ARM",
-        entries: [{
-            name: "Graviton III",
-            refNo: `1`
-        }, {
-            name: "Graviton II",
-            refNo: `2`
-        }, {
-            name: "Graviton I",
-            refNo: `3`
-        }]
+        name: "Cumulus"
+    }];
+    return generatedData;
+};
+const getSutClassData = () => {
+    let generatedData = [{
+        name: "Static"
+    }, {
+        name: "AWS"
+    }, {
+        name: "Azure"
+    }, {
+        name: "Tencent"
+    }, {
+        name: "Alicloud"
+    }, {
+        name: "GCP"
+    }, {
+        name: "Simics"
+    }];
+    return generatedData;
+};
+const getWorkerTypeClassData = () => {
+    let generatedData = [{
+        name: "m6i"
+    }, {
+        name: "c6i"
+    }, {
+        name: "r6i"
+    }, {
+        name: "i6i"
+    }];
+    return generatedData;
+};
+const getWorkerScaleClassData = () => {
+    let generatedData = [{
+        name: "xlarge"
+    }, {
+        name: "4xlarge"
+    }, {
+        name: "16xlarge"
     }];
     return generatedData;
 };
 
 interface IHeroClass {
     name: string;
-    entries: ISubClass[];
-}
-interface ISubClass {
-    name: string;
-    refNo: string;
 }
 
 @Component({
@@ -59,15 +64,41 @@ interface ISubClass {
 export class BackendListComponent implements OnInit {
     @ViewChild('button', { static: true }) public button: ElementRef;
     public heroClasses: IHeroClass[] = [];
-    public hero = 'Choose your hero';
+    public hero = 'Choose';
+    public sutClasses: IHeroClass[] = [];
+    public sut = 'SUT Provider';
+    public workerTypeClasses: IHeroClass[] = [];
+    public workerType = 'Worker Type';
+    public workerScaleClasses: IHeroClass[] = [];
+    public workerScale = 'Worker Scale';
+    public svrinfo = false;
+    public sar = false;
+    public emon = false;
+    public sar_flags = [
+        { done: true, description: 'CPU Usage' },
+        { done: true, description: 'CPU Frequency' },
+        { done: true, description: 'Memory Usage' }
+    ];
 
     constructor(public elem: ElementRef) {}
 
     public handleDropDownSelection(event: ISelectionEventArgs) {
         this.hero = event.newSelection.value;
     }
+    public handleDropDownSelection1(event: ISelectionEventArgs) {
+        this.sut = event.newSelection.value;
+    }
+    public handleDropDownSelection2(event: ISelectionEventArgs) {
+        this.workerType = event.newSelection.value;
+    }
+    public handleDropDownSelection3(event: ISelectionEventArgs) {
+        this.workerScale = event.newSelection.value;
+    }
 
     ngOnInit(): void {
         this.heroClasses = getHeroClassData();
+        this.sutClasses = getSutClassData();
+        this.workerTypeClasses = getWorkerTypeClassData();
+        this.workerScaleClasses = getWorkerScaleClassData();
     }
 }

@@ -24,6 +24,7 @@ $grays-btn-color: color($green-palette, 'grays', 800);
 .drop-down {
     margin: 8px;
     width: 220px;
+    text-transform: unset
 }
 
 .drop-down__scroll-container {

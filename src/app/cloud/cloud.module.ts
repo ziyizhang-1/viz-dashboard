@@ -6,9 +6,19 @@ import { ModalModule } from "../layout/components/modal/modal.module";
 import { CloudComponent } from './cloud.component';
 import { PlatformListModule } from "./platform-list/platform-list.module";
 import { BackendListModule } from "./backend-list/backend-list.module";
+import { ReleaseListModule } from "./release-list/release-list.module";
+import { RegistryListModule } from "./registry-list/registry-list.module";
 
 @NgModule({
-    imports: [CommonModule, HeaderModule, ModalModule, ClarityModule, PlatformListModule, BackendListModule],
+    imports: [CommonModule,
+              HeaderModule,
+              ModalModule,
+              ClarityModule,
+              PlatformListModule,
+              BackendListModule,
+              ReleaseListModule,
+              RegistryListModule
+            ],
     declarations: [CloudComponent]
   })
   export class CloudModule {}
