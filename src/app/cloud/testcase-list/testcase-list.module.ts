@@ -4,34 +4,30 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { 
+	IgxCheckboxModule,
 	IgxDropDownModule,
 	IgxButtonModule,
-	IgxToggleModule,
-	IgxInputGroupModule,
-	IgxSwitchModule,
-	IgxCheckboxModule
-} from "igniteui-angular";
-import { BackendListComponent } from "./backend-list.component";
+	IgxToggleModule
+ } from "igniteui-angular";
+import { TestcaseListComponent } from "./testcase-list.component";
 
 
 
 @NgModule({
-  bootstrap: [BackendListComponent],
+  bootstrap: [TestcaseListComponent],
   declarations: [
-	BackendListComponent
+	TestcaseListComponent
   ],
   imports: [
 	CommonModule,
 	BrowserModule,
 	BrowserAnimationsModule,
 	FormsModule,
+	IgxCheckboxModule,
 	IgxDropDownModule,
 	IgxButtonModule,
-	IgxToggleModule,
-	IgxInputGroupModule,
-	IgxSwitchModule,
-	IgxCheckboxModule
+	IgxToggleModule
   ],
-  exports: [BackendListComponent]
+  exports: [TestcaseListComponent]
 })
-export class BackendListModule {}
+export class TestcaseListModule {}

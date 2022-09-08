@@ -8,7 +8,7 @@ export enum WidgetType {
 }
 
 export enum WidgetName {
-  Text = "Text",
+  Text = "Console",
   PieChart = "Pie Chart",
   BarChart = "Bar Chart",
   DataTable = "Data Table",

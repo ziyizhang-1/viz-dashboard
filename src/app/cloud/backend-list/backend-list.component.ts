@@ -64,7 +64,7 @@ interface IHeroClass {
 export class BackendListComponent implements OnInit {
     @ViewChild('button', { static: true }) public button: ElementRef;
     public heroClasses: IHeroClass[] = [];
-    public hero = 'Choose';
+    public hero = 'CHOOSE';
     public sutClasses: IHeroClass[] = [];
     public sut = 'SUT Provider';
     public workerTypeClasses: IHeroClass[] = [];

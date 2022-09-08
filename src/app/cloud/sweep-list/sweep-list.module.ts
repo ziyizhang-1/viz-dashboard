@@ -6,19 +6,17 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { 
 	IgxDropDownModule,
 	IgxButtonModule,
-	IgxToggleModule,
-	IgxInputGroupModule,
-	IgxSwitchModule,
-	IgxCheckboxModule
-} from "igniteui-angular";
-import { BackendListComponent } from "./backend-list.component";
+	IgxToggleModule
+ } from "igniteui-angular";
+import { SweepListComponent } from "./sweep-list.component";
+import { ModalModule } from "src/app/layout/components/modal/modal.module";
 
 
 
 @NgModule({
-  bootstrap: [BackendListComponent],
+  bootstrap: [SweepListComponent],
   declarations: [
-	BackendListComponent
+	SweepListComponent
   ],
   imports: [
 	CommonModule,
@@ -28,10 +26,8 @@ import { BackendListComponent } from "./backend-list.component";
 	IgxDropDownModule,
 	IgxButtonModule,
 	IgxToggleModule,
-	IgxInputGroupModule,
-	IgxSwitchModule,
-	IgxCheckboxModule
+	ModalModule
   ],
-  exports: [BackendListComponent]
+  exports: [SweepListComponent]
 })
-export class BackendListModule {}
+export class SweepListModule {}

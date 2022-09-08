@@ -20,6 +20,12 @@ export const HeatmapInitConfig: EChartsOption = {
   tooltip: {
     position: 'top'
   },
+  toolbox: {
+    feature: {
+      saveAsImage: { show: true },
+    },
+    showTitle: false
+  },
   grid: {
     height: '50%',
     top: '20%'

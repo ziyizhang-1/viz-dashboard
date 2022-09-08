@@ -28,7 +28,7 @@ interface IHeroClass {
 export class ReleaseListComponent implements OnInit {
     @ViewChild('button', { static: true }) public button: ElementRef;
     public heroClasses: IHeroClass[] = [];
-    public hero = 'Choose your hero';
+    public hero = 'CHOOSE';
 
     constructor(public elem: ElementRef) {}
 

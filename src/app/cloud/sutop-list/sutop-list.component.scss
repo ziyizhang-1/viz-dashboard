@@ -1,7 +1,7 @@
 @use 'igniteui-angular/theming' as *;
 @forward 'igniteui-angular/theming';
 
-app-backend-list {
+app-sutop-list {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -24,15 +24,11 @@ $grays-btn-color: color($green-palette, 'grays', 800);
 .drop-down {
     margin: 8px;
     width: 220px;
-    text-transform: unset;
+    text-transform: unset
 }
 
 .drop-down__scroll-container {
     max-height: 280px;
-}
-
-igx-switch {
-    padding-left: 24px;
 }
 
 $custom-drop-down-theme: drop-down-theme(
@@ -54,14 +50,6 @@ $custom-button-theme: button-theme(
     $foreground: #fdfdfd,
 );
 
-$custom-checkbox-theme: checkbox-theme(
-    $label-color: #f2f3f4,
-);
-
-$custom-switch-theme: switch-theme(
-    $label-color: #f2f3f4,
-);
-
 // :host {
 //     @include css-vars($custom-drop-down-theme);
 // }
@@ -74,6 +62,4 @@ $custom-switch-theme: switch-theme(
 :host  ::ng-deep {
     @include drop-down($custom-drop-down-theme);
     @include button($custom-button-theme);
-    @include checkbox($custom-checkbox-theme);
-    @include switch($custom-switch-theme);
 }

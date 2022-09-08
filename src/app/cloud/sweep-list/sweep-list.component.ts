@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ISelectionEventArgs } from 'igniteui-angular';
+import { ModalComponent } from 'src/app/layout/components/modal/modal.component';
 
 const getHeroClassData = () => {
     const generatedData = [{
@@ -52,12 +53,13 @@ interface ISubClass {
 }
 
 @Component({
-    selector: 'app-platform-list',
-    styleUrls: ['./platform-list.component.scss'],
-    templateUrl: './platform-list.component.html'
+    selector: 'app-sweep-list',
+    styleUrls: ['./sweep-list.component.scss'],
+    templateUrl: './sweep-list.component.html'
 })
-export class PlatformListComponent implements OnInit {
+export class SweepListComponent implements OnInit {
     @ViewChild('button', { static: true }) public button: ElementRef;
+    @ViewChild(ModalComponent, { static: true }) modal: ModalComponent;
     public heroClasses: IHeroClass[] = [];
     public hero = 'CHOOSE';
 

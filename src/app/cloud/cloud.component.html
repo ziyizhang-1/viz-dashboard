@@ -59,19 +59,19 @@
             </div>
         </header>
         <br />
-        <app-platform-list></app-platform-list>
+        <app-workload-list></app-workload-list>
     </div>
     <div style="margin-bottom: 30px;">
         <header class="header-7">
             <div class="branding">
-                <a class="nav-link">
+                <a class="nav-link" (click)="show = true">
                     <clr-icon shape="filter-2"></clr-icon>
                     <span class="title">Testcases</span>
                 </a>
             </div>
         </header>
         <br />
-        <app-platform-list></app-platform-list>
+        <app-testcase-list *ngIf="show"></app-testcase-list>
     </div>
     <div style="margin-bottom: 30px;">
         <header class="header-7">
@@ -83,7 +83,7 @@
             </div>
         </header>
         <br />
-        <app-platform-list></app-platform-list>
+        <app-sweep-list></app-sweep-list>
     </div>
     <div style="margin-bottom: 30px;">
         <header class="header-7">
@@ -95,6 +95,6 @@
             </div>
         </header>
         <br />
-        <app-platform-list></app-platform-list>
+        <app-sutop-list></app-sutop-list>
     </div>
 </div>

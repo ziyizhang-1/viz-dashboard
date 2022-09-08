@@ -1,3 +1,6 @@
 .text-component {
   padding: 0 16px 0 16px;
+  resize: both;
+  overflow: auto;
+  white-space: pre-wrap;
 }

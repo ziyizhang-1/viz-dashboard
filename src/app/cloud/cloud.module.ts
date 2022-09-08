@@ -8,6 +8,10 @@ import { PlatformListModule } from "./platform-list/platform-list.module";
 import { BackendListModule } from "./backend-list/backend-list.module";
 import { ReleaseListModule } from "./release-list/release-list.module";
 import { RegistryListModule } from "./registry-list/registry-list.module";
+import { WorkloadListModule } from "./workload-list/workload-list.module";
+import { TestcaseListModule } from "./testcase-list/testcase-list.module";
+import { SweepListModule } from "./sweep-list/sweep-list.module";
+import { SutopListModule } from "./sutop-list/sutop-list.module";
 
 @NgModule({
     imports: [CommonModule,
@@ -17,7 +21,11 @@ import { RegistryListModule } from "./registry-list/registry-list.module";
               PlatformListModule,
               BackendListModule,
               ReleaseListModule,
-              RegistryListModule
+              RegistryListModule,
+              WorkloadListModule,
+              TestcaseListModule,
+              SweepListModule,
+              SutopListModule
             ],
     declarations: [CloudComponent]
   })

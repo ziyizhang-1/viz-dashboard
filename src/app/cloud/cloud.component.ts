@@ -11,13 +11,13 @@ import { getThemeType } from "src/app/core/store/reducers/theme.reducer";
 @Component({
   selector: "app-cloud",
   templateUrl: "./cloud.component.html",
-  styleUrls: ["./cloud.component.scss"]
+  styleUrls: ["./cloud.component.scss"],
 })
 export class CloudComponent implements OnInit, OnDestroy {
-
   theme: string;
   private themeSubscription: Subscription;
   constructor(private store: Store<AppState>) {}
+  public show: boolean = false;
 
   ngOnInit(): void {
     this.themeSubscription = this.store

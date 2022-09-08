@@ -1,0 +1,13 @@
+<igx-checkbox 
+    [readonly]="true" 
+    [(ngModel)]="masterCheckbox.checked" 
+    [(indeterminate)]="masterCheckbox.indeterminate" 
+    (click)="toggleAll()"
+>
+    SELECT ALL
+</igx-checkbox>
+<div style="text-align: center;">
+    <igx-checkbox class="tasks" *ngFor="let task of tasks" [(ngModel)]="task.done">
+        {{ task.name }}
+    </igx-checkbox>
+</div>
