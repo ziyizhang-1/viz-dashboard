@@ -1,47 +1,83 @@
-<p-table
-  #dt
-  [columns]="cols"
-  [value]="data"
-  tableStyleClass="data-table-component"
-  [ngClass]="theme"
-  exportFilename="data"
->
-  <ng-template pTemplate="caption">
-    <div class="flex">
-      <button
-        type="button"
-        pButton
-        pRipple
-        icon="pi pi-file"
-        (click)="dt.exportCSV()"
-        class="mr-2"
-        pTooltip="CSV"
-        tooltipPosition="bottom"
-      ></button>
-      <button
-        type="button"
-        pButton
-        pRipple
-        icon="pi pi-file-excel"
-        (click)="exportExcel()"
-        class="p-button-success mr-2"
-        pTooltip="XLSX"
-        tooltipPosition="bottom"
-      ></button>
-    </div>
-  </ng-template>
-  <ng-template pTemplate="header" let-columns>
-    <tr>
-      <th *ngFor="let col of columns">
-        {{ col.header }}
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr [pSelectableRow]="rowData">
-      <td *ngFor="let col of columns">
-        {{ rowData[col.field] }}
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<p-toolbar>
+  <div class="p-toolbar-group-left"></div>
+  <div class="p-toolbar-group-right">
+      <p-button label=".xlsx" icon="pi pi-download" styleClass="p-button-success" type="button" (click)="exportExcel()"></p-button>
+  </div>
+</p-toolbar>
+<p-tabView style="border: 0px;">
+  <p-tabPanel header="Best Performance">
+    <p-table
+      #dt
+      [columns]="cols"
+      [value]="data"
+      tableStyleClass="data-table-component"
+      [ngClass]="theme"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">
+            {{ rowData[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+  <p-tabPanel header="Sweeping">
+    <p-table
+      #dt
+      [columns]="cols"
+      [value]="data"
+      tableStyleClass="data-table-component"
+      [ngClass]="theme"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">
+            {{ rowData[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+  <p-tabPanel header="BS">
+    <p-table
+      #dt
+      [columns]="cols"
+      [value]="data"
+      tableStyleClass="data-table-component"
+      [ngClass]="theme"
+      styleClass="p-datatable-gridlines"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">
+            {{ rowData[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+</p-tabView>

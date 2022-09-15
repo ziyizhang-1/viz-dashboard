@@ -69,8 +69,9 @@ export class DataTableComponent {
   exportExcel() {
     import("xlsx").then(xlsx => {
       const worksheet = xlsx.utils.json_to_sheet(this.data);
-      console.log(worksheet);
-      const workbook = { Sheets: { data: worksheet }, SheetNames: ["data"] };
+      const worksheet_1 = xlsx.utils.json_to_sheet(this.data);
+      const worksheet_2 = xlsx.utils.json_to_sheet(this.data);
+      const workbook = { Sheets: { "best performance": worksheet, "sweeping": worksheet_1, "BS": worksheet_2 }, SheetNames: ["best performance", "sweeping", "BS"] };
       const excelBuffer: any = xlsx.write(workbook, {
         bookType: "xlsx",
         type: "array"

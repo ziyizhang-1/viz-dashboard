@@ -9,3 +9,13 @@ tr {
   text-align: center;
   height: 25px;
 }
+
+p-tabView {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.ui-tabs .ui-tabs-panel {
+  padding: 5px 5px;
+  outline: none;
+}

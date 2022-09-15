@@ -13,11 +13,22 @@ import { DynamicWidgetDirective } from "./directives/dynamic-widget.directive";
 import { WidgetService } from "./services/dynamic-widget.service";
 import { DataService } from "./services/data-service";
 import { TableModule } from "primeng/table";
+import { TabViewModule } from 'primeng/tabview';
+import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from "primeng/button";
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  imports: [CommonModule, NgxEchartsModule.forRoot({ echarts: () => import('echarts') }), BrowserModule, TableModule, ButtonModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    NgxEchartsModule.forRoot({ echarts: () => import('echarts') }),
+    BrowserModule,
+    TableModule,
+    ButtonModule,
+    TabViewModule,
+    ToolbarModule,
+    HttpClientModule
+  ],
   declarations: [
     DynamicWidgetComponent,
     DynamicWidgetDirective,
