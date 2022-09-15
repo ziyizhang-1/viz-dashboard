@@ -9,26 +9,36 @@ import {
   TableWidgetResized,
   WindowResized
 } from "src/app/layout/store/actions/layout.actions";
-import { User } from "../../models/user.model";
-import { userData } from "./user-data";
-
+import { DataService } from "../../services/data-service";
+import { Data } from "../../models/data.model";
+import * as FileSaver from "file-saver";
 @Component({
   selector: "app-data-table",
-  templateUrl: "./data-table.component.html",
-  styleUrls: ["./data-table.component.scss"],
+  templateUrl: './data-table.component.html',
+  styleUrls: ['./data-table.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class DataTableComponent {
-  rows: User[] = userData;
+  data: Data[];
+  cols: any[] = [
+    { field: "id", header: "ID" },
+    { field: "status", header: "Status" },
+    { field: "frequency", header: "Frequency" }
+  ];
+  exportColumns: any[] = this.cols.map(col => ({
+    title: col.header,
+    dataKey: col.field
+  }));;
   theme: string;
 
   private themeSubscription: Subscription;
   private widgetResizeSubscription: Subscription;
   private windowResizeSubscription: Subscription;
 
-  constructor(private store: Store<AppState>, private action$: Actions) {}
+  constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+
     this.themeSubscription = this.store
       .pipe(select(getThemeType))
       .subscribe((theme: string) => {
@@ -38,14 +48,14 @@ export class DataTableComponent {
     this.widgetResizeSubscription = this.action$
       .pipe(ofType<TableWidgetResized>(LayoutActionTypes.TableWidgetResized))
       .subscribe(() => {
-        this.rows = [...this.rows];
+        this.dataService.getDataSmall().then(data => (this.data = data));
       });
 
     this.windowResizeSubscription = this.action$
       .pipe(ofType<WindowResized>(LayoutActionTypes.WindowResized))
       .subscribe(() => {
         setTimeout(() => {
-          this.rows = [...this.rows];
+          this.dataService.getDataSmall().then(data => (this.data = data));
         }, 400);
       });
   }
@@ -54,5 +64,31 @@ export class DataTableComponent {
     this.themeSubscription.unsubscribe();
     this.widgetResizeSubscription.unsubscribe();
     this.windowResizeSubscription.unsubscribe();
+  }
+
+  exportExcel() {
+    import("xlsx").then(xlsx => {
+      const worksheet = xlsx.utils.json_to_sheet(this.data);
+      console.log(worksheet);
+      const workbook = { Sheets: { data: worksheet }, SheetNames: ["data"] };
+      const excelBuffer: any = xlsx.write(workbook, {
+        bookType: "xlsx",
+        type: "array"
+      });
+      this.saveAsExcelFile(excelBuffer, "data");
+    });
+  }
+
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    let EXCEL_TYPE =
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+    let EXCEL_EXTENSION = ".xlsx";
+    const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(
+      data,
+      fileName + EXCEL_EXTENSION
+    );
   }
 }

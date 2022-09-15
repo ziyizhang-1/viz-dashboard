@@ -1,31 +1,47 @@
-<ngx-datatable
-  class="data-table-component"
-  [rows]="rows"
-  [headerHeight]="50"
-  [footerHeight]="50"
-  [columnMode]="'force'"
-  [rowHeight]="'auto'"
-  [scrollbarH]="true"
+<p-table
+  #dt
+  [columns]="cols"
+  [value]="data"
+  tableStyleClass="data-table-component"
   [ngClass]="theme"
+  exportFilename="data"
 >
-  <ngx-datatable-column name="Id" [resizeable]="false" [canAutoResize]="true">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.id }}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Status" [resizeable]="false" [canAutoResize]="true">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.status }}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column
-    name="Frequency(GHz)"
-    [resizeable]="false"
-    [canAutoResize]="true"
-    [sortable]="false"
-  >
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.frequency }}
-    </ng-template>
-  </ngx-datatable-column>
-</ngx-datatable>
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <button
+        type="button"
+        pButton
+        pRipple
+        icon="pi pi-file"
+        (click)="dt.exportCSV()"
+        class="mr-2"
+        pTooltip="CSV"
+        tooltipPosition="bottom"
+      ></button>
+      <button
+        type="button"
+        pButton
+        pRipple
+        icon="pi pi-file-excel"
+        (click)="exportExcel()"
+        class="p-button-success mr-2"
+        pTooltip="XLSX"
+        tooltipPosition="bottom"
+      ></button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
