@@ -8,8 +8,8 @@
   <p-tabPanel header="Best Performance">
     <p-table
       #dt
-      [columns]="cols"
-      [value]="data"
+      [columns]="cols_1"
+      [value]="Sheet1"
       tableStyleClass="data-table-component"
       [ngClass]="theme"
       styleClass="p-datatable-gridlines"
@@ -33,8 +33,8 @@
   <p-tabPanel header="Sweeping">
     <p-table
       #dt
-      [columns]="cols"
-      [value]="data"
+      [columns]="cols_2"
+      [value]="Sheet2"
       tableStyleClass="data-table-component"
       [ngClass]="theme"
       styleClass="p-datatable-gridlines"
@@ -58,8 +58,8 @@
   <p-tabPanel header="BS">
     <p-table
       #dt
-      [columns]="cols"
-      [value]="data"
+      [columns]="cols_3"
+      [value]="Sheet3"
       tableStyleClass="data-table-component"
       [ngClass]="theme"
       styleClass="p-datatable-gridlines"
@@ -72,7 +72,7 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData">
+        <tr [pSelectableRow]="rowData" [ngClass]="{'divider': rowData[columns[0].field] === ''}">
           <td *ngFor="let col of columns">
             {{ rowData[col.field] }}
           </td>

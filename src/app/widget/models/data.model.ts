@@ -1,5 +1,3 @@
 export interface Data {
-    id?: number;
-    status?: String;
-    frequency?: number;
+    [key: string]: string | number;
 }

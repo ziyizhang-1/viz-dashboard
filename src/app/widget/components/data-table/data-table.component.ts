@@ -19,16 +19,19 @@ import * as FileSaver from "file-saver";
   encapsulation: ViewEncapsulation.None
 })
 export class DataTableComponent {
-  data: Data[];
-  cols: any[] = [
-    { field: "id", header: "ID" },
-    { field: "status", header: "Status" },
-    { field: "frequency", header: "Frequency" }
-  ];
-  exportColumns: any[] = this.cols.map(col => ({
-    title: col.header,
-    dataKey: col.field
-  }));;
+  Sheet1: Data[];
+  Sheet2: Data[];
+  Sheet3: Data[];
+  dataKeys: string[];
+  cols_1: any[] = [];
+  cols_2: any[] = [];
+  cols_3: any[] = [];
+
+  // exportColumns: any[] = this.cols.map(col => ({
+  //   title: col.header,
+  //   dataKey: col.field
+  // }));
+
   theme: string;
 
   private themeSubscription: Subscription;
@@ -44,18 +47,41 @@ export class DataTableComponent {
       .subscribe((theme: string) => {
         this.theme = theme === "Dark" ? "dark" : "material";
       });
+    
+    this.dataService.getDataSheet1().then(data => {
+      [this.Sheet1, this.dataKeys] = data;
+      for (let k of this.dataKeys) {
+        this.cols_1.push({ field: k, header: k } as const);
+      }
+    });
+    this.dataService.getDataSheet2().then(data => {
+      [this.Sheet2, this.dataKeys] = data;
+      for (let k of this.dataKeys) {
+        this.cols_2.push({ field: k, header: k } as const);
+      }
+    });
+    this.dataService.getDataSheet3().then(data => {
+      [this.Sheet3, this.dataKeys] = data;
+      for (let k of this.dataKeys) {
+        this.cols_3.push({ field: k, header: k } as const);
+      }
+    });
 
     this.widgetResizeSubscription = this.action$
       .pipe(ofType<TableWidgetResized>(LayoutActionTypes.TableWidgetResized))
       .subscribe(() => {
-        this.dataService.getDataSmall().then(data => (this.data = data));
+        this.Sheet1 = this.Sheet1; 
+        this.Sheet2 = this.Sheet2; 
+        this.Sheet3 = this.Sheet3;
       });
 
     this.windowResizeSubscription = this.action$
       .pipe(ofType<WindowResized>(LayoutActionTypes.WindowResized))
       .subscribe(() => {
         setTimeout(() => {
-          this.dataService.getDataSmall().then(data => (this.data = data));
+          this.Sheet1 = this.Sheet1;
+          this.Sheet2 = this.Sheet2;
+          this.Sheet3 = this.Sheet3;
         }, 400);
       });
   }
@@ -68,9 +94,9 @@ export class DataTableComponent {
 
   exportExcel() {
     import("xlsx").then(xlsx => {
-      const worksheet = xlsx.utils.json_to_sheet(this.data);
-      const worksheet_1 = xlsx.utils.json_to_sheet(this.data);
-      const worksheet_2 = xlsx.utils.json_to_sheet(this.data);
+      const worksheet = xlsx.utils.json_to_sheet(this.Sheet1);
+      const worksheet_1 = xlsx.utils.json_to_sheet(this.Sheet2);
+      const worksheet_2 = xlsx.utils.json_to_sheet(this.Sheet3);
       const workbook = { Sheets: { "best performance": worksheet, "sweeping": worksheet_1, "BS": worksheet_2 }, SheetNames: ["best performance", "sweeping", "BS"] };
       const excelBuffer: any = xlsx.write(workbook, {
         bookType: "xlsx",

@@ -10,9 +10,8 @@ tr {
   height: 25px;
 }
 
-p-tabView {
-  height: 100% !important;
-  width: 100% !important;
+:host ::ng-deep .divider {
+  background-color: rgba(0,0,0,.15) !important;
 }
 
 .ui-tabs .ui-tabs-panel {
