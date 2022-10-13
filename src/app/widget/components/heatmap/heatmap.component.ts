@@ -10,6 +10,7 @@ import {
   WindowResized
 } from "src/app/layout/store/actions/layout.actions";
 import { HeatmapInitConfig } from "./heatmap-options";
+import { DataService } from "../../services/data-service";
 
 @Component({
   selector: "app-heatmap",
@@ -24,9 +25,59 @@ export class HeatmapComponent implements OnInit, OnDestroy {
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
 
-  constructor(private store: Store<AppState>, private action$: Actions) {}
+  constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.dataService.getHeatmapData1().then(data1 => {
+      this.options.xAxis = {
+        type: 'category',
+        name: 'Batch Size',
+        data: data1,
+        splitArea: {
+          show: true
+        }
+      };
+      });
+    
+    this.dataService.getHeatmapData2().then(data2 => {
+      this.options.yAxis = {
+        type: 'category',
+        name: 'CPI',
+        data: data2,
+        splitArea: {
+          show: true
+        }
+      };
+      });
+    
+    this.dataService.getHeatmapData3().then(data3 => {
+      this.options.series = [{
+        name: 'Throughput',
+        type: 'heatmap',
+        data: data3,
+        label: {
+          show: true
+        },
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }];
+      });
+    
+    this.dataService.getHeatmapData4().then(data4 => {
+      this.options.visualMap = {
+        min: data4[1],
+        max: data4[0],
+        type: 'continuous',
+        orient: 'horizontal',
+        left: 'center',
+        bottom: '10%'
+      };
+    });
+    
     this.themeSubscription = this.store
       .pipe(select(getThemeType))
       .subscribe((theme: string) => {
