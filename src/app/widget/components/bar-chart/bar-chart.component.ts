@@ -10,6 +10,7 @@ import {
   WindowResized
 } from "src/app/layout/store/actions/layout.actions";
 import { BarChartInitConfig } from "./bar-chart-options";
+import { DataService } from "../../services/data-service";
 
 @Component({
   selector: "app-bar-chart",
@@ -17,6 +18,8 @@ import { BarChartInitConfig } from "./bar-chart-options";
   styleUrls: ["./bar-chart.component.scss"]
 })
 export class BarChartComponent implements OnInit, OnDestroy {
+  temp_data:any[] = new Array()
+    
   options: EChartsOption = BarChartInitConfig;
   theme: string;
   echartsInstance: ECharts;
@@ -24,9 +27,29 @@ export class BarChartComponent implements OnInit, OnDestroy {
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
 
-  constructor(private store: Store<AppState>, private action$: Actions) {}
+  constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.dataService.getBarData1().then(data1 => {
+      this.options.xAxis = {
+        type: "category",
+        data: data1
+      };
+      });
+
+    this.dataService.getBarData2().then(data2 => {
+      for (let each of data2) {
+        this.temp_data.push(
+            {
+              type: "bar",
+              data: each[Object.keys(each)[0]],
+              name: Object.keys(each)[0]
+            }
+          );
+      };
+      this.options.series = this.temp_data;
+    });
+
     this.themeSubscription = this.store
       .pipe(select(getThemeType))
       .subscribe((theme: string) => {
