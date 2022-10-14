@@ -30,22 +30,19 @@ export class BarChartComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getBarData1().then(data1 => {
+    this.dataService.getBarData().then(data => {
       this.options.xAxis = {
         type: "category",
-        data: data1
+        data: data[0]
       };
-      });
-
-    this.dataService.getBarData2().then(data2 => {
-      for (let each of data2) {
+      for (let each of data[1]) {
         this.temp_data.push(
-            {
-              type: "bar",
-              data: each[Object.keys(each)[0]],
-              name: Object.keys(each)[0]
-            }
-          );
+          {
+            type: "bar",
+            data: each[Object.keys(each)[0]],
+            name: Object.keys(each)[0]
+          }
+        );
       };
       this.options.series = this.temp_data;
     });

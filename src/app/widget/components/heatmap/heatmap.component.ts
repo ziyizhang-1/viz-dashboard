@@ -28,33 +28,27 @@ export class HeatmapComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getHeatmapData1().then(data1 => {
+    this.dataService.getHeatmapData().then(data => {
       this.options.xAxis = {
         type: 'category',
         name: 'Batch Size',
-        data: data1,
+        data: data[0],
         splitArea: {
           show: true
         }
       };
-      });
-    
-    this.dataService.getHeatmapData2().then(data2 => {
       this.options.yAxis = {
         type: 'category',
         name: 'CPI',
-        data: data2,
+        data: data[1],
         splitArea: {
           show: true
         }
       };
-      });
-    
-    this.dataService.getHeatmapData3().then(data3 => {
       this.options.series = [{
         name: 'Throughput',
         type: 'heatmap',
-        data: data3,
+        data: data[2],
         label: {
           show: true
         },
@@ -65,12 +59,9 @@ export class HeatmapComponent implements OnInit, OnDestroy {
           }
         }
       }];
-      });
-    
-    this.dataService.getHeatmapData4().then(data4 => {
       this.options.visualMap = {
-        min: data4[1],
-        max: data4[0],
+        min: data[3][1],
+        max: data[3][0],
         type: 'continuous',
         orient: 'horizontal',
         left: 'center',

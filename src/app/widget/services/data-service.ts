@@ -28,54 +28,18 @@ export class DataService {
         .then(res => <Data[]>res["BS Tables"])
         .then(data => { return [data, Object.keys(data[0])] as const; });
     }
-
-    getDataSheet4() {
-        return this.http.get<any>('assets/Processed_DLRM-PyTorch_1.json')
-        .toPromise()
-        .then(res => <Data[]>res["sheet1"])
-        .then(data => { return [data, Object.keys(data[0])] as const; });
-    }
   
-    getHeatmapData1() {
+    getHeatmapData() {
         return this.http.get<any>('assets/Processed_heatmap_4.json')
         .toPromise()
-        .then(res => <number[]>res["BS"])
+        .then(res => [<number[]>res["BS"], <number[]>res["CPI"], <any[]>res["DATA"], <number[]>res["MAX_MIN"]] as const)
         .then(data => { return data; });
     }
 
-    getHeatmapData2() {
-        return this.http.get<any>('assets/Processed_heatmap_4.json')
-        .toPromise()
-        .then(res => <number[]>res["CPI"])
-        .then(data => { return data; });
-    }
-
-    getHeatmapData3() {
-        return this.http.get<any>('assets/Processed_heatmap_4.json')
-        .toPromise()
-        .then(res => <any[]>res["DATA"])
-        .then(data => { return data; });
-    }
-
-    getHeatmapData4() {
-        return this.http.get<any>('assets/Processed_heatmap_4.json')
-        .toPromise()
-        .then(res => <number[]>res["MAX_MIN"])
-        .then(data => { return data; });
-    }
-
-    getBarData1() {
+    getBarData() {
         return this.http.get<any>('assets/Processed_compare_0.json')
         .toPromise()
-        .then(res => <number[]>res["BS"])
+        .then(res => [<number[]>res["BS"], <number[]>res["THROUGHPUT"]] as const)
         .then(data => { return data; });
     }
-
-    getBarData2() {
-        return this.http.get<any>('assets/Processed_compare_0.json')
-        .toPromise()
-        .then(res => <any[]>res["THROUGHPUT"])
-        .then(data => { return data; });
-    }
-
 }
