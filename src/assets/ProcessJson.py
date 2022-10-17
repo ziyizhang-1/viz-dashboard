@@ -140,7 +140,7 @@ def gen_new_json():
     for json_file in json_file_list:
         print("processing <{}> file ...".format(json_file))
         total_dict = {}
-        process_name = json_file.split('.')[0]
+        process_name = json_file.split('-')[0]
         json_path = os.path.join(JSON_DIR, json_file)
         with codecs.open(json_path, "r", encoding="utf-8") as js:
             raw_data = json.load(js)
