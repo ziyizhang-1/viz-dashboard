@@ -5,79 +5,83 @@
   </div>
 </p-toolbar>
 <p-tabView style="border: 0px;">
-  <p-tabPanel header="Best Performance">
-    <p-table
-      #dt
-      [columns]="cols_1"
-      [value]="Sheet1"
-      tableStyleClass="data-table-component"
-      [ngClass]="theme"
-      styleClass="p-datatable-gridlines"
-    >
-      <ng-template pTemplate="header" let-columns>
-        <tr>
-          <th *ngFor="let col of columns">
-            {{ col.header }}
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData">
-          <td *ngFor="let col of columns">
-            {{ rowData[col.field] }}
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-tabPanel>
-  <p-tabPanel header="Sweeping">
-    <p-table
-      #dt
-      [columns]="cols_2"
-      [value]="Sheet2"
-      tableStyleClass="data-table-component"
-      [ngClass]="theme"
-      styleClass="p-datatable-gridlines"
-    >
-      <ng-template pTemplate="header" let-columns>
-        <tr>
-          <th *ngFor="let col of columns">
-            {{ col.header }}
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData">
-          <td *ngFor="let col of columns">
-            {{ rowData[col.field] }}
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-tabPanel>
-  <p-tabPanel header="BS">
-    <p-table
-      #dt
-      [columns]="cols_3"
-      [value]="Sheet3"
-      tableStyleClass="data-table-component"
-      [ngClass]="theme"
-      styleClass="p-datatable-gridlines"
-    >
-      <ng-template pTemplate="header" let-columns>
-        <tr>
-          <th *ngFor="let col of columns">
-            {{ col.header }}
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData" [ngClass]="{'divider': rowData[columns[0].field] === ''}">
-          <td *ngFor="let col of columns">
-            {{ rowData[col.field] }}
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+  <p-tabPanel [header]="item.header" *ngFor="let item of items; let i = index" [selected]="i == 0">
+    <p-tabView style="border: 0px;">
+      <p-tabPanel header="Best Performance">
+        <p-table
+          #dt
+          [columns]="cols_1"
+          [value]="Sheet1"
+          tableStyleClass="data-table-component"
+          [ngClass]="theme"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="Sweeping">
+        <p-table
+          #dt
+          [columns]="cols_2"
+          [value]="Sheet2"
+          tableStyleClass="data-table-component"
+          [ngClass]="theme"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="BS">
+        <p-table
+          #dt
+          [columns]="cols_3"
+          [value]="Sheet3"
+          tableStyleClass="data-table-component"
+          [ngClass]="theme"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" [ngClass]="{'divider': rowData[columns[0].field] === ''}">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+    </p-tabView>
   </p-tabPanel>
 </p-tabView>

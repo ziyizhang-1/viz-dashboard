@@ -16,7 +16,9 @@ import { TableModule } from "primeng/table";
 import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from "primeng/button";
+import { DropdownModule } from 'primeng/dropdown';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms"
 
 @NgModule({
   imports: [
@@ -27,6 +29,8 @@ import { HttpClientModule } from "@angular/common/http";
     ButtonModule,
     TabViewModule,
     ToolbarModule,
+    DropdownModule,
+    FormsModule,
     HttpClientModule
   ],
   declarations: [

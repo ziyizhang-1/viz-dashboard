@@ -26,6 +26,7 @@ export class DataTableComponent {
   cols_1: any[] = [];
   cols_2: any[] = [];
   cols_3: any[] = [];
+  items: any[] = [];
 
   // exportColumns: any[] = this.cols.map(col => ({
   //   title: col.header,
@@ -47,6 +48,10 @@ export class DataTableComponent {
       .subscribe((theme: string) => {
         this.theme = theme === "Dark" ? "dark" : "material";
       });
+
+    for (let i = 1; i <= 3; i++) {
+      this.items.push({ header: i });
+    }
     
     this.dataService.getDataSheet1().then(data => {
       [this.Sheet1, this.dataKeys] = data;

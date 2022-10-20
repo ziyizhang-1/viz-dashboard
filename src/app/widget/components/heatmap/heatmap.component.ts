@@ -21,6 +21,8 @@ export class HeatmapComponent implements OnInit, OnDestroy {
   options: EChartsOption = HeatmapInitConfig;
   theme: string;
   echartsInstance: ECharts;
+  stories: any[] = [];
+  selectedStory: any;
 
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
@@ -28,6 +30,13 @@ export class HeatmapComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.stories = [
+      {name: 'Throughput'},
+      {name: 'Min Latency'},
+      {name: 'Max Latency'},
+      {name: 'CPU Utilization'},
+      {name: 'Memory Utilization'}
+    ];
     this.dataService.getHeatmapData().then(data => {
       this.options.xAxis = {
         type: 'category',
