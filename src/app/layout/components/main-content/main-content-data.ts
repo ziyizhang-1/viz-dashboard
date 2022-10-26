@@ -12,38 +12,38 @@ export const mainContentWidgets: WidgetItem[] = [
   },
   {
     cols: 2,
-    rows: 2,
-    y: 0,
-    x: 0,
+    rows: 1,
+    y: 3,
+    x: 2,
     widgetId: WidgetType.PieChart,
     widgetName: WidgetName.PieChart
   },
   {
     cols: 2,
     rows: 1,
-    y: 0,
-    x: 2,
+    y: 3,
+    x: 0,
     widgetId: WidgetType.BarChart,
     widgetName: WidgetName.BarChart
   },
   {
     cols: 2,
     rows: 1,
-    y: 1,
+    y: 2,
     x: 2,
     widgetId: WidgetType.Heatmap,
     widgetName: WidgetName.Heatmap
   },
   {
-    cols: 2,
+    cols: 6,
     rows: 2,
     y: 0,
-    x: 4,
+    x: 0,
     widgetId: WidgetType.DataTable,
     widgetName: WidgetName.DataTable
   },
   {
-    cols: 4,
+    cols: 2,
     rows: 1,
     y: 2,
     x: 0,

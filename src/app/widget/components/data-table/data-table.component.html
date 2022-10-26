@@ -4,7 +4,7 @@
       <p-button label=".xlsx" icon="pi pi-download" styleClass="p-button-success" type="button" (click)="exportExcel()"></p-button>
   </div>
 </p-toolbar>
-<p-tabView style="border: 0px;">
+<p-tabView style="border: 0px;" (onChange)="onChange($event)" [activeIndex]="selectedIndex">
   <p-tabPanel [header]="item.header" *ngFor="let item of items; let i = index" [selected]="i == 0">
     <p-tabView style="border: 0px;">
       <p-tabPanel header="Best Performance">

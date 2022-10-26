@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, ViewEncapsulation, ViewChild } from "@angular/core";
 import { Actions, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
 import { Subscription } from "rxjs";
@@ -12,6 +12,7 @@ import {
 import { DataService } from "../../services/data-service";
 import { Data } from "../../models/data.model";
 import * as FileSaver from "file-saver";
+import { TabView } from "primeng/tabview";
 @Component({
   selector: "app-data-table",
   templateUrl: './data-table.component.html',
@@ -28,10 +29,8 @@ export class DataTableComponent {
   cols_3: any[] = [];
   items: any[] = [];
 
-  // exportColumns: any[] = this.cols.map(col => ({
-  //   title: col.header,
-  //   dataKey: col.field
-  // }));
+  selectedIndex: number = 0;
+  @ViewChild(TabView) tabView: TabView;
 
   theme: string;
 
@@ -95,6 +94,15 @@ export class DataTableComponent {
     this.themeSubscription.unsubscribe();
     this.widgetResizeSubscription.unsubscribe();
     this.windowResizeSubscription.unsubscribe();
+  }
+
+  onChange($event): void {
+    this.selectedIndex = $event.index;
+    this.submit(this.tabView.tabs[this.selectedIndex].header);
+  }
+
+  submit(state: any): void {
+    this.dataService.setChosenState(state);
   }
 
   exportExcel() {
