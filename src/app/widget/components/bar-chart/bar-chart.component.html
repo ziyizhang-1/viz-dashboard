@@ -1,3 +1,5 @@
+<p-dropdown #cmpDropDown [options]="stories" [placeholder]="stories[0].name" optionLabel="name" optionValue="id" (onChange)="onChange(cmpDropDown.value)"></p-dropdown>
+
 <div
   echarts
   class="chart"

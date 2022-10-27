@@ -23,12 +23,11 @@ export class DataTableComponent {
   Sheet1: Data[];
   Sheet2: Data[];
   Sheet3: Data[];
-  dataKeys: string[];
   cols_1: any[] = [];
   cols_2: any[] = [];
   cols_3: any[] = [];
-  items: any[] = [];
-
+  headers: any[] = [];
+  state: number;
   selectedIndex: number = 0;
   @ViewChild(TabView) tabView: TabView;
 
@@ -37,39 +36,51 @@ export class DataTableComponent {
   private themeSubscription: Subscription;
   private widgetResizeSubscription: Subscription;
   private windowResizeSubscription: Subscription;
+  private stateSubscription: Subscription;
 
   constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.dataService.getDataInfo().then(data => {
+      for (let each of data[0]) {
+        this.headers.push({ header: each });
+      };
+    });
+    
+    this.stateSubscription = this.dataService
+      .getChosenState()
+      .subscribe((state) => {
+        this.state = state;
+        let cols_1: any[] = [];
+        let cols_2: any[] = [];
+        let cols_3: any[] = [];
+        let dataKeys: string[];
+        this.dataService.getDataSheets(this.state).then(data => {
+          [this.Sheet1, dataKeys] = data[0];
+          for (let k of dataKeys) {
+            cols_1.push({ field: k, header: k } as const);
+          }
+          [this.Sheet2, dataKeys] = data[1];
+          for (let k of dataKeys) {
+            cols_2.push({ field: k, header: k } as const);
+          }
+          [this.Sheet3, dataKeys] = data[2];
+          for (let k of dataKeys) {
+            cols_3.push({ field: k, header: k } as const);
+          }
+        });
+        this.cols_1 = cols_1;
+        this.cols_2 = cols_2;
+        this.cols_3 = cols_3;
+      });
+
+    this.submit(this.selectedIndex);
 
     this.themeSubscription = this.store
       .pipe(select(getThemeType))
       .subscribe((theme: string) => {
         this.theme = theme === "Dark" ? "dark" : "material";
       });
-
-    for (let i = 1; i <= 3; i++) {
-      this.items.push({ header: i });
-    }
-    
-    this.dataService.getDataSheet1().then(data => {
-      [this.Sheet1, this.dataKeys] = data;
-      for (let k of this.dataKeys) {
-        this.cols_1.push({ field: k, header: k } as const);
-      }
-    });
-    this.dataService.getDataSheet2().then(data => {
-      [this.Sheet2, this.dataKeys] = data;
-      for (let k of this.dataKeys) {
-        this.cols_2.push({ field: k, header: k } as const);
-      }
-    });
-    this.dataService.getDataSheet3().then(data => {
-      [this.Sheet3, this.dataKeys] = data;
-      for (let k of this.dataKeys) {
-        this.cols_3.push({ field: k, header: k } as const);
-      }
-    });
 
     this.widgetResizeSubscription = this.action$
       .pipe(ofType<TableWidgetResized>(LayoutActionTypes.TableWidgetResized))
@@ -94,11 +105,13 @@ export class DataTableComponent {
     this.themeSubscription.unsubscribe();
     this.widgetResizeSubscription.unsubscribe();
     this.windowResizeSubscription.unsubscribe();
+    this.stateSubscription.unsubscribe();
   }
 
   onChange($event): void {
     this.selectedIndex = $event.index;
-    this.submit(this.tabView.tabs[this.selectedIndex].header);
+    // this.submit(this.tabView.tabs[this.selectedIndex].header);
+    this.submit(this.selectedIndex);
   }
 
   submit(state: any): void {

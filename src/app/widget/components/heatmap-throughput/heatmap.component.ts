@@ -13,16 +13,15 @@ import { HeatmapInitConfig } from "./heatmap-options";
 import { DataService } from "../../services/data-service";
 
 @Component({
-  selector: "app-heatmap",
+  selector: "app-heatmap-throughput",
   templateUrl: "./heatmap.component.html",
   styleUrls: ["./heatmap.component.scss"]
 })
-export class HeatmapComponent implements OnInit, OnDestroy {
+export class ThroughputHeatmapComponent implements OnInit, OnDestroy {
   options: EChartsOption = HeatmapInitConfig;
   theme: string;
   echartsInstance: ECharts;
-  stories: any[] = [];
-  state: any;
+  state: number;
 
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
@@ -35,51 +34,48 @@ export class HeatmapComponent implements OnInit, OnDestroy {
       .getChosenState()
       .subscribe((state) => {
         this.state = state;
-        this.stories = [
-          {name: this.state}
-        ];
+        this.dataService.getHeatmapData(this.state).then(data => {
+          this.options.xAxis = {
+            type: 'category',
+            name: 'Batch Size',
+            data: data[0][0],
+            splitArea: {
+              show: true
+            }
+          };
+          this.options.yAxis = {
+            type: 'category',
+            name: 'CPI',
+            data: data[0][1],
+            splitArea: {
+              show: true
+            }
+          };
+          this.options.series = [{
+            name: 'Throughput',
+            type: 'heatmap',
+            data: data[0][2],
+            label: {
+              show: true
+            },
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }];
+          this.options.visualMap = {
+            min: data[0][3][1],
+            max: data[0][3][0],
+            type: 'continuous',
+            orient: 'horizontal',
+            left: 'center',
+            bottom: '10%'
+          };
+          this.echartsInstance.setOption(this.options, true);
+        });
       });
-    
-    this.dataService.getHeatmapData().then(data => {
-      this.options.xAxis = {
-        type: 'category',
-        name: 'Batch Size',
-        data: data[0],
-        splitArea: {
-          show: true
-        }
-      };
-      this.options.yAxis = {
-        type: 'category',
-        name: 'CPI',
-        data: data[1],
-        splitArea: {
-          show: true
-        }
-      };
-      this.options.series = [{
-        name: 'Throughput',
-        type: 'heatmap',
-        data: data[2],
-        label: {
-          show: true
-        },
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
-        }
-      }];
-      this.options.visualMap = {
-        min: data[3][1],
-        max: data[3][0],
-        type: 'continuous',
-        orient: 'horizontal',
-        left: 'center',
-        bottom: '10%'
-      };
-    });
     
     this.themeSubscription = this.store
       .pipe(select(getThemeType))

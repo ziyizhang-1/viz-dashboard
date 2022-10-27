@@ -18,10 +18,11 @@ import { DataService } from "../../services/data-service";
   styleUrls: ["./bar-chart.component.scss"]
 })
 export class BarChartComponent implements OnInit, OnDestroy {
-  temp_data:any[] = new Array()
     
   options: EChartsOption = BarChartInitConfig;
   theme: string;
+  stories: any[] = [];
+  data: any[];
   echartsInstance: ECharts;
 
   private themeSubscription: Subscription;
@@ -30,13 +31,25 @@ export class BarChartComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.dataService.getDataInfo().then(data => {
+      for (let i = 0; i < data[1].length; i++) {
+        this.stories.push({ name: data[1][i], id: i });
+      };
+    });
+
     this.dataService.getBarData().then(data => {
+      this.data = data;
       this.options.xAxis = {
         type: "category",
-        data: data[0]
+        name: "Batch Size",
+        data: this.data[0][this.data[1][0]]["BS"]
       };
-      for (let each of data[1]) {
-        this.temp_data.push(
+      this.options.yAxis = {
+        name: "Normalized"
+      }
+      let temp_data: any[] = [];
+      for (let each of this.data[0][this.data[1][0]]["THROUGHPUT"]) {
+        temp_data.push(
           {
             type: "bar",
             data: each[Object.keys(each)[0]],
@@ -44,7 +57,7 @@ export class BarChartComponent implements OnInit, OnDestroy {
           }
         );
       };
-      this.options.series = this.temp_data;
+      this.options.series = temp_data;
     });
 
     this.themeSubscription = this.store
@@ -63,6 +76,26 @@ export class BarChartComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
     this.resizeSubscription.unsubscribe();
+  }
+
+  onChange(id: number): void {
+    this.options.xAxis = {
+        type: "category",
+        name: "Batch Size",
+        data: this.data[0][this.data[1][id]]["BS"]
+      };
+    let temp_data: any[] = []
+    for (let each of this.data[0][this.data[1][id]]["THROUGHPUT"]) {
+      temp_data.push(
+        {
+          type: "bar",
+          data: each[Object.keys(each)[0]],
+          name: Object.keys(each)[0]
+        }
+      );
+    };
+    this.options.series = temp_data;
+    this.echartsInstance.setOption(this.options, true);
   }
 
   onChartInit(echartsInstance: ECharts): void {

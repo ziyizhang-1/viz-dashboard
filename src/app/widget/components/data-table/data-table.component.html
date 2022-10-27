@@ -5,9 +5,9 @@
   </div>
 </p-toolbar>
 <p-tabView style="border: 0px;" (onChange)="onChange($event)" [activeIndex]="selectedIndex">
-  <p-tabPanel [header]="item.header" *ngFor="let item of items; let i = index" [selected]="i == 0">
+  <p-tabPanel [header]="each.header" *ngFor="let each of headers; let i = index" [selected]="i == 0" [headerStyle]="{'width': '100%'}">
     <p-tabView style="border: 0px;">
-      <p-tabPanel header="Best Performance">
+      <p-tabPanel header="Best Performance" >
         <p-table
           #dt
           [columns]="cols_1"

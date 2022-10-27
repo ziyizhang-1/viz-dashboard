@@ -9,24 +9,54 @@ import {
   LayoutActionTypes,
   WindowResized
 } from "src/app/layout/store/actions/layout.actions";
+import { DataService } from "../../services/data-service";
 import { LineChartInitConfig } from "./line-chart-options";
 
 @Component({
-  selector: "app-line-chart",
+  selector: "app-line-chart-memory",
   templateUrl: "./line-chart.component.html",
   styleUrls: ["./line-chart.component.scss"]
 })
-export class LineChartComponent implements OnInit, OnDestroy {
+export class MemoryLineChartComponent implements OnInit, OnDestroy {
   options: EChartsOption = LineChartInitConfig;
   theme: string;
+  state: number;
   echartsInstance: ECharts;
 
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
+  private stateSubscription: Subscription;
 
-  constructor(private store: Store<AppState>, private action$: Actions) {}
+  constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.stateSubscription = this.dataService
+      .getChosenState()
+      .subscribe((state) => {
+        this.state = state;
+        this.dataService.getLineData(this.state).then(data => {
+          this.options.xAxis = {
+            type: 'category',
+            name: 'Time',
+            data: data[0]
+          };
+          this.options.yAxis = {
+            min: 0,
+            max: 100,
+            type: 'value',
+            name: 'Memory Usage'
+          };
+          this.options.series = {
+            data: data[2],
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            areaStyle: {opacity: 0.5}
+          };
+          this.echartsInstance.setOption(this.options, true);
+        });
+      });
+
     this.themeSubscription = this.store
       .pipe(select(getThemeType))
       .subscribe((theme: string) => {
@@ -43,6 +73,7 @@ export class LineChartComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
     this.resizeSubscription.unsubscribe();
+    this.stateSubscription.unsubscribe();
   }
 
   onChartInit(echartsInstance: ECharts): void {
