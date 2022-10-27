@@ -1,0 +1,243 @@
+{
+    "Best Performance Tables": [
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Max throughput*",
+            "Median*": "6241.36",
+            "Average": "6241.36",
+            "Round 1": "6241.36",
+            "Round 2": "",
+            "Round 3": "",
+            "CV": "0.0"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Normalized Max Throughput",
+            "Median*": "13.69",
+            "Average": "13.69",
+            "Round 1": "13.69",
+            "Round 2": "",
+            "Round 3": "",
+            "CV": "0.0"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Max Latency",
+            "Median*": "10.84",
+            "Average": "10.84",
+            "Round 1": "10.84",
+            "Round 2": "",
+            "Round 3": "",
+            "CV": "0.0"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "P99.9 Latency"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "P99 Latency"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "P90 Latency"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Avg Latency"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "",
+            "Median*": "",
+            "Average": "",
+            "Round 1": "",
+            "Round 2": "",
+            "Round 3": "",
+            "CV": ""
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "KPI batch_size=1 cores_per_instance=20",
+            "Median*": "Median*",
+            "Average": "Average",
+            "Round 1": "Round 1",
+            "Round 2": "Round 2",
+            "Round 3": "Round 3",
+            "CV": "CV"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Min Latency (BS=1)",
+            "Median*": "1.39",
+            "Average": "1.39",
+            "Round 1": "1.39",
+            "Round 2": "",
+            "Round 3": "",
+            "CV": "0.0"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Throughput",
+            "Median*": "3751.3",
+            "Average": "3751.3",
+            "Round 1": "3751.3",
+            "Round 2": "",
+            "Round 3": "",
+            "CV": "0.0"
+        },
+        {
+            "KPI batch_size=8 cores_per_instance=20": "Accuracy"
+        }
+    ],
+    "Performance Sweeping Tables": [
+        {
+            "throughput": "CPI",
+            "": "Instance#",
+            " ": "BS=1",
+            "  ": "BS=2",
+            "   ": "BS=8",
+            "    ": "BS=16",
+            "     ": "BS=32"
+        },
+        {
+            "throughput": "20",
+            "": "6",
+            " ": "3751.3",
+            "  ": "4673.81",
+            "   ": "6241.36",
+            "    ": "5867.76",
+            "     ": "6110.55"
+        },
+        {
+            "throughput": "30",
+            "": "4",
+            " ": "2828.07",
+            "  ": "3803.15",
+            "   ": "4980.7",
+            "    ": "5955.25",
+            "     ": "5763.2"
+        },
+        {
+            "throughput": "60",
+            "": "2",
+            " ": "1655.38",
+            "  ": "2395.97",
+            "   ": "4255.68",
+            "    ": "5112.9",
+            "     ": "5205.8"
+        },
+        {
+            "throughput": "",
+            "": "",
+            " ": "",
+            "  ": "",
+            "   ": "",
+            "    ": "",
+            "     ": ""
+        },
+        {
+            "throughput": "min_latency"
+        },
+        {
+            "throughput": "CPI",
+            "": "Instance#",
+            " ": "BS=1",
+            "  ": "BS=2",
+            "   ": "BS=8",
+            "    ": "BS=16",
+            "     ": "BS=32"
+        },
+        {
+            "throughput": "20",
+            "": "6",
+            " ": "1.39",
+            "  ": "2.1",
+            "   ": "5.92",
+            "    ": "11.27",
+            "     ": "22.2"
+        },
+        {
+            "throughput": "30",
+            "": "4",
+            " ": "1.22",
+            "  ": "1.73",
+            "   ": "6.1",
+            "    ": "8.25",
+            "     ": "15.74"
+        },
+        {
+            "throughput": "60",
+            "": "2",
+            " ": "1.16",
+            "  ": "1.56",
+            "   ": "3.62",
+            "    ": "6.03",
+            "     ": "11.67"
+        },
+        {
+            "throughput": "",
+            "": "",
+            " ": "",
+            "  ": "",
+            "   ": "",
+            "    ": "",
+            "     ": ""
+        },
+        {
+            "throughput": "max_latency"
+        },
+        {
+            "throughput": "CPI",
+            "": "Instance#",
+            " ": "BS=1",
+            "  ": "BS=2",
+            "   ": "BS=8",
+            "    ": "BS=16",
+            "     ": "BS=32"
+        },
+        {
+            "throughput": "20",
+            "": "6",
+            " ": "1.88",
+            "  ": "3.48",
+            "   ": "10.84",
+            "    ": "20.85",
+            "     ": "38.12"
+        },
+        {
+            "throughput": "30",
+            "": "4",
+            " ": "1.69",
+            "  ": "2.52",
+            "   ": "8.23",
+            "    ": "14.28",
+            "     ": "46.73"
+        },
+        {
+            "throughput": "60",
+            "": "2",
+            " ": "1.28",
+            "  ": "1.88",
+            "   ": "4.62",
+            "    ": "6.94",
+            "     ": "26.49"
+        }
+    ],
+    "BS Tables": [
+        {
+            "": "Max Throughput (Samples/second)",
+            "BS=1": "3751.3",
+            "BS=2": "4673.81",
+            "BS=8": "6241.36",
+            "BS=16": "5955.25",
+            "BS=32": "6110.55"
+        },
+        {
+            "": "Instance Number",
+            "BS=1": "6",
+            "BS=2": "6",
+            "BS=8": "6",
+            "BS=16": "4",
+            "BS=32": "6"
+        },
+        {
+            "": "CPU Utilization(%)"
+        },
+        {
+            "": "CPU Frequency(MHz)"
+        },
+        {
+            "": "Memory Usage(%)"
+        }
+    ]
+}
