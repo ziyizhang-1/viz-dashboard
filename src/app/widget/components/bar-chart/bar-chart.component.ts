@@ -21,7 +21,7 @@ export class BarChartComponent implements OnInit, OnDestroy {
     
   options: EChartsOption = BarChartInitConfig;
   theme: string;
-  stories: any[] = [];
+  stories: any[];
   data: any[];
   echartsInstance: ECharts;
 
@@ -31,6 +31,7 @@ export class BarChartComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private action$: Actions, private dataService: DataService) {}
 
   ngOnInit(): void {
+    this.stories = [];
     this.dataService.getDataInfo().then(data => {
       for (let i = 0; i < data[1].length; i++) {
         this.stories.push({ name: data[1][i], id: i });
