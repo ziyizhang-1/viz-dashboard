@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Actions, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
-import { EChartOption, ECharts } from "echarts";
+import { EChartsOption, ECharts } from "echarts";
 import { Subscription } from "rxjs";
 import { AppState } from "src/app/core/store/reducers";
 import { getThemeType } from "src/app/core/store/reducers/theme.reducer";
@@ -17,9 +17,9 @@ import { PieChartInitConfig } from "./pie-chart-options";
   styleUrls: ["./pie-chart.component.scss"]
 })
 export class PieChartComponent implements OnInit, OnDestroy {
-  options: EChartOption = PieChartInitConfig;
+  options: EChartsOption = PieChartInitConfig;
   theme: string;
-  echartsIntance: ECharts;
+  echartsInstance: ECharts;
 
   private themeSubscription: Subscription;
   private resizeSubscription: Subscription;
@@ -46,13 +46,13 @@ export class PieChartComponent implements OnInit, OnDestroy {
   }
 
   onChartInit(echartsInstance: ECharts): void {
-    this.echartsIntance = echartsInstance;
+    this.echartsInstance = echartsInstance;
   }
 
   resizeChart(): void {
-    if (this.echartsIntance) {
+    if (this.echartsInstance) {
       setTimeout(() => {
-        this.echartsIntance.resize();
+        this.echartsInstance.resize();
       }, 400);
     }
   }

@@ -1,6 +1,6 @@
-import { EChartOption } from "echarts";
+import { EChartsOption } from "echarts";
 
-export const PieChartInitConfig: EChartOption = {
+export const PieChartInitConfig: EChartsOption = {
   title: {
     show: false
   },
@@ -10,34 +10,35 @@ export const PieChartInitConfig: EChartOption = {
   },
   legend: {
     orient: "horizontal",
-    x: "center",
-    y: "bottom",
     type: "scroll",
-    data: ["Others", "Vue", "AngularJs", "Angular", "React"]
+    bottom: 0,
+    data: ["AWS", "Azure", "AliCloud", "Tencent", "Bare Metal"]
   },
   series: [
     {
-      type: "pie",
+      type: 'pie',
       data: [
-        { value: 335, name: "Others" },
-        { value: 310, name: "Vue" },
-        { value: 234, name: "AngularJs" },
-        { value: 135, name: "Angular" },
-        { value: 1548, name: "React" }
-      ],
-      label: {
-        normal: {
-          formatter: "{d}%",
-          position: "inside"
+        {
+          value: 335,
+          name: 'AWS'
+        },
+        {
+          value: 234,
+          name: 'Azure'
+        },
+        {
+          value: 456,
+          name: 'AliCloud'
+        },
+        {
+          value: 189,
+          name: 'Tencent'
+        },
+        {
+          value: 1548,
+          name: 'Bare Metal'
         }
-      },
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: "rgba(0, 0, 0, 0.5)"
-        }
-      }
+      ]
     }
   ]
 };

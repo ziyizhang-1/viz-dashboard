@@ -1,31 +1,87 @@
-<ngx-datatable
-  class="data-table-component"
-  [rows]="rows"
-  [headerHeight]="50"
-  [footerHeight]="50"
-  [columnMode]="'force'"
-  [rowHeight]="'auto'"
-  [scrollbarH]="true"
-  [ngClass]="theme"
->
-  <ngx-datatable-column name="Id" [resizeable]="false" [canAutoResize]="true">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.id }}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Name" [resizeable]="false" [canAutoResize]="true">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.name }}
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column
-    name="Date Created"
-    [resizeable]="false"
-    [canAutoResize]="true"
-    [sortable]="false"
-  >
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.created | date }}
-    </ng-template>
-  </ngx-datatable-column>
-</ngx-datatable>
+<p-toolbar>
+  <div class="p-toolbar-group-left"></div>
+  <div class="p-toolbar-group-right">
+      <p-button label=".xlsx" icon="pi pi-download" styleClass="p-button-success" type="button" (click)="exportExcel()"></p-button>
+  </div>
+</p-toolbar>
+<p-tabView style="border: 0px;" (onChange)="onChange($event)" [activeIndex]="selectedIndex">
+  <p-tabPanel [header]="each.header" *ngFor="let each of headers; let i = index" [selected]="i == 0" [headerStyle]="{'width': '100%'}">
+    <p-tabView style="border: 0px;">
+      <p-tabPanel header="Best Performance" >
+        <p-table
+          #dt
+          [columns]="cols_1"
+          [value]="Sheet1"
+          tableStyleClass="data-table-component"
+          [ngClass]="theme"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="Sweeping">
+        <p-table
+          #dt
+          [columns]="cols_2"
+          [value]="Sheet2"
+          tableStyleClass="data-table-component"
+          [ngClass]="theme"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="BS">
+        <p-table
+          #dt
+          [columns]="cols_3"
+          [value]="Sheet3"
+          tableStyleClass="data-table-component"
+          [ngClass]="theme"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" [ngClass]="{'divider': rowData[columns[0].field] === ''}">
+              <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+    </p-tabView>
+  </p-tabPanel>
+</p-tabView>

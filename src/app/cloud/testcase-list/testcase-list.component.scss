@@ -1,0 +1,38 @@
+@use 'igniteui-angular/theming' as *;
+@forward 'igniteui-angular/theming';
+
+app-testcase-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+$palette: $light-material-palette;
+$schema: $light-material-schema;
+
+$default-palette: $palette;
+
+igx-checkbox {
+    margin-top: 16px;
+}
+
+igx-checkbox.tasks {
+    padding-left: 10px;
+}
+
+$custom-checkbox-theme: checkbox-theme(
+    $label-color: #f2f3f4,
+);
+
+// :host {
+//     @include css-vars($custom-drop-down-theme);
+// }
+
+/* Using Theme Overrides to provide IE 11 support.
+ * NOTE: Theming using this approach will greatly increase the size
+ * of the output CSS. If you do not plan to target IE 11,
+ * delete this section and use the `igx-css-vars` mixin as shown above.
+**/
+:host  ::ng-deep {
+    @include checkbox($custom-checkbox-theme);
+}

@@ -1,7 +1,7 @@
 import {
   Component,
-  ComponentFactory,
-  ComponentFactoryResolver,
+  // ComponentFactory,
+  // ComponentFactoryResolver,
   Input,
   OnDestroy,
   OnInit,
@@ -21,7 +21,7 @@ export class DynamicWidgetComponent implements OnInit, OnDestroy {
   @Input()
   widgetItem: WidgetItem;
 
-  private componentFactory: ComponentFactory<any>;
+  // private componentFactory: ComponentFactory<any>;
   private viewContainerRef: ViewContainerRef;
   private componentRef: any;
 
@@ -29,20 +29,20 @@ export class DynamicWidgetComponent implements OnInit, OnDestroy {
   widget: DynamicWidgetDirective;
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
+    // private componentFactoryResolver: ComponentFactoryResolver,
     private widgetService: WidgetService
   ) {}
 
   ngOnInit(): void {
-    this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      this.widgetService.getComponent(this.widgetItem.widgetId)
-    );
+    // this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+    //   this.widgetService.getComponent(this.widgetItem.widgetId)
+    // );
 
     this.viewContainerRef = this.widget.viewContainerRef;
     this.viewContainerRef.clear();
 
     this.componentRef = this.viewContainerRef.createComponent(
-      this.componentFactory
+      this.widgetService.getComponent(this.widgetItem.widgetId)
     );
   }
 

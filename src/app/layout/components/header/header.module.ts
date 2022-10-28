@@ -6,6 +6,7 @@ import { ClarityModule } from "@clr/angular";
 import { CoreModule } from "src/app/core/core.module";
 import { ModalModule } from "../modal/modal.module";
 import { HeaderComponent } from "./header.component";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { HeaderComponent } from "./header.component";
     BrowserAnimationsModule,
     ClarityModule,
     CoreModule,
-    ModalModule
+    ModalModule,
+    RouterModule
   ],
   declarations: [HeaderComponent],
   exports: [HeaderComponent]

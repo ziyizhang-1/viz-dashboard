@@ -1,0 +1,79 @@
+<button #button class="drop-down" igxButton="raised" [igxToggleAction]="dropDown" [overlaySettings]="{outlet: elem}"
+    [igxDropDownItemNavigation]="dropDown">{{ hero }}</button>
+<igx-drop-down #dropDown class="drop-down" (selectionChanging)="handleDropDownSelection($event)">
+    <div class="drop-down__scroll-container">
+        <!-- <igx-drop-down-item-group *ngFor="let classGroup of heroClasses" [label]="classGroup['name']"> -->
+        <igx-drop-down-item *ngFor="let class of heroClasses" [value]='class.name'>
+            {{ class.name }}
+        </igx-drop-down-item>
+        <!-- </igx-drop-down-item-group> -->
+    </div>
+</igx-drop-down>
+
+<button #button class="drop-down" igxButton="raised" [igxToggleAction]="dropDown1" [overlaySettings]="{outlet: elem}"
+    [igxDropDownItemNavigation]="dropDown1" *ngIf="hero == 'Cumulus'">{{ sut }}</button>
+<igx-drop-down #dropDown1 class="drop-down" (selectionChanging)="handleDropDownSelection1($event)">
+    <div class="drop-down__scroll-container">
+        <!-- <igx-drop-down-item-group *ngFor="let classGroup of heroClasses" [label]="classGroup['name']"> -->
+        <igx-drop-down-item *ngFor="let class of sutClasses" [value]='class.name'>
+            {{ class.name }}
+        </igx-drop-down-item>
+        <!-- </igx-drop-down-item-group> -->
+    </div>
+</igx-drop-down>
+
+<button #button class="drop-down" igxButton="raised" [igxToggleAction]="dropDown2" [overlaySettings]="{outlet: elem}"
+    [igxDropDownItemNavigation]="dropDown2" *ngIf="hero == 'Cumulus' && sut != 'SUT Provider'">{{ workerType }}</button>
+<igx-drop-down #dropDown2 class="drop-down" (selectionChanging)="handleDropDownSelection2($event)">
+    <div class="drop-down__scroll-container">
+        <!-- <igx-drop-down-item-group *ngFor="let classGroup of heroClasses" [label]="classGroup['name']"> -->
+        <igx-drop-down-item *ngFor="let class of workerTypeClasses" [value]='class.name'>
+            {{ class.name }}
+        </igx-drop-down-item>
+        <!-- </igx-drop-down-item-group> -->
+    </div>
+</igx-drop-down>
+
+<button #button class="drop-down" igxButton="raised" [igxToggleAction]="dropDown3" [overlaySettings]="{outlet: elem}"
+    [igxDropDownItemNavigation]="dropDown3" *ngIf="hero == 'Cumulus' && workerType != 'Worker Type'">{{ workerScale }}</button>
+<igx-drop-down #dropDown3 class="drop-down" (selectionChanging)="handleDropDownSelection3($event)">
+    <div class="drop-down__scroll-container">
+        <!-- <igx-drop-down-item-group *ngFor="let classGroup of heroClasses" [label]="classGroup['name']"> -->
+        <igx-drop-down-item *ngFor="let class of workerScaleClasses" [value]='class.name'>
+            {{ class.name }}
+        </igx-drop-down-item>
+        <!-- </igx-drop-down-item-group> -->
+    </div>
+</igx-drop-down>
+
+<igx-switch [(ngModel)]="svrinfo" *ngIf="hero == 'Cumulus' && workerScale != 'Worker Scale'">
+    svrinfo
+</igx-switch>
+
+<igx-switch [(ngModel)]="sar" *ngIf="hero == 'Cumulus' && workerScale != 'Worker Scale'">
+    sar
+</igx-switch>
+
+<igx-switch [(ngModel)]="emon" *ngIf="hero == 'Cumulus' && workerScale != 'Worker Scale'">
+    emon
+</igx-switch>
+
+<button #button class="drop-down" igxButton="raised" style="height: 20px; font-size: 20px" *ngIf="hero == 'Cumulus' && sar">
+    <igx-input-group>
+        <input igxInput name="sarInterval" type="text" />
+        <label igxLabel for="sarInterval">Sar Interval (second)</label>
+    </igx-input-group>
+</button>
+
+<ul *ngIf="hero == 'Cumulus' && sar">
+    <igx-checkbox *ngFor="let flag of sar_flags" [checked]="flag.done" style="margin-top: 16px; padding: 16px;">
+        {{ flag.description }}
+    </igx-checkbox>
+</ul>
+
+<button #button class="drop-down" igxButton="raised" style="height: 20px; font-size: 20px" *ngIf="hero == 'Cumulus' && workerScale != 'Worker Scale'">
+    <igx-input-group>
+        <input igxInput name="owner" type="text" />
+        <label igxLabel for="owner">Owner</label>
+    </igx-input-group>
+</button>

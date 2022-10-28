@@ -47,4 +47,11 @@ Thumbs.db
 
 /.angular
 
+<<<<<<< HEAD
 *.code-workspace
+=======
+*.code-workspace
+
+src/assets/*
+!.gitkeep
+>>>>>>> dev

@@ -22,18 +22,20 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "node_modules/@clr/icons/clr-icons.min.css",
-              "node_modules/@swimlane/ngx-datatable/release/index.css",
-              "node_modules/@swimlane/ngx-datatable/release/themes/material.css",
-              "node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
+              "node_modules/primeng/resources/themes/arya-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeicons/primeicons.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/@webcomponents/custom-elements/custom-elements.min.js",
-              "node_modules/@clr/icons/clr-icons.min.js"
+              "node_modules/@clr/icons/clr-icons.min.js",
+              "./node_modules/hammerjs/hammer.min.js"
             ]
           },
           "configurations": {
@@ -47,7 +49,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,

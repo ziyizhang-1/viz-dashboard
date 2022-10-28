@@ -1,0 +1,100 @@
+<app-header></app-header>
+<div class="body">
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="cpu"></clr-icon>
+                    <span class="title">Platform</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-platform-list></app-platform-list>
+        <br />
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="cloud-scale"></clr-icon>
+                    <span class="title">Backend</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-backend-list></app-backend-list>
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="tags"></clr-icon>
+                    <span class="title">Release</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-release-list></app-release-list>
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="container-volume" class="is-solid"></clr-icon>
+                    <span class="title">Registry</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-registry-list></app-registry-list>
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="applications" class="is-solid"></clr-icon>
+                    <span class="title">Benchmarking Workload(s)</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-workload-list></app-workload-list>
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link" (click)="show = true">
+                    <clr-icon shape="filter-2"></clr-icon>
+                    <span class="title">Testcases</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-testcase-list *ngIf="show"></app-testcase-list>
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="cog"></clr-icon>
+                    <span class="title">Sweep Configuration</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-sweep-list></app-sweep-list>
+    </div>
+    <div style="margin-bottom: 30px;">
+        <header class="header-7">
+            <div class="branding">
+                <a class="nav-link">
+                    <clr-icon shape="vm"></clr-icon>
+                    <span class="title">SUT Operation</span>
+                </a>
+            </div>
+        </header>
+        <br />
+        <app-sutop-list></app-sutop-list>
+    </div>
+</div>

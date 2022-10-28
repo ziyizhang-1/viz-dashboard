@@ -1,6 +1,6 @@
 # Angular Dashboard Demo
 
-* Angular (v8.1) dashboard demo with resizable and movable widgets<br/>
+* Angular (v13.3.2) dashboard demo with resizable and movable widgets<br/>
 * Light and dark themes available<br/>
 * Clarity Design System<br/>
 
