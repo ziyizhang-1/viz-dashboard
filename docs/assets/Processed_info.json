@@ -1,0 +1,14 @@
+{
+    "DATA_TABLE_INFO": [
+        "ResNet50-TensorFlow_ICX_bare-metal_avx-fp32",
+        "ResNet50-TensorFlow_ICX_bare-metal_avx-int8",
+        "ResNet50-TensorFlow_SPR_bare-metal_avx-fp32",
+        "ResNet50-TensorFlow_SPR_bare-metal_avx-int8"
+    ],
+    "BAR_CHART_INFO": [
+        "avx-int8",
+        "avx-fp32",
+        "ICX",
+        "SPR"
+    ]
+}
